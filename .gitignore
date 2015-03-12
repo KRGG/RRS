@@ -3,3 +3,4 @@ ENV/
 
 ## Eclipse
 .project
+.pydevproject
