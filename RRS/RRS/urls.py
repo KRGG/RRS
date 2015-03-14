@@ -1,10 +1,18 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 
-urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'RRS.views.home', name='home'),
-    # url(r'^blog/', include('blog.urls')),
+from customer import views as customer_views
 
+
+urlpatterns = patterns('',
+    url(
+        regex = r'^$',
+        view  = customer_views.index,
+        name  = 'index'
+    ),
+    
+    # Remove view/ namespace on deployment
+    url(r'^view/', include('customer.urls', namespace='view')),
+    url(r'^staff/', include('staff.urls', namespace='staff')),
     url(r'^admin/', include(admin.site.urls)),
 )

@@ -1,6 +1,10 @@
 ## Virtualenv
 ENV/
 
+## Python
+*.pyc
+
 ## Eclipse
 .project
 .pydevproject
+.settings/
