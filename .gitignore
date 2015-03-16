@@ -1,5 +1,6 @@
 ## Virtualenv
 ENV/
+venv/
 
 ## Python
 *.pyc
