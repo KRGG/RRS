@@ -5,6 +5,11 @@ venv/
 ## Python
 *.pyc
 
+## Robotframework log files
+RRS/log.html
+RRS/outpu.xml
+RRS/report.html
+
 ## Eclipse
 .project
 .pydevproject
