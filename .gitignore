@@ -7,7 +7,7 @@ venv/
 
 ## Robotframework log files
 RRS/log.html
-RRS/outpu.xml
+RRS/output.xml
 RRS/report.html
 
 ## Eclipse
