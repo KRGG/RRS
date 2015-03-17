@@ -13,7 +13,14 @@
 
   </head>
   <body>
-    {% block nav %}{% endblock nav %}
+    {% block nav %}
+    <a href="about/" id="about-link">About</a>
+    <a href="terms-and-conditions/" id="terms-link">Terms and Conditions</a>
+    <a href="privacy-statement/" id="privacy-statement-link">Terms and Conditions</a>
+    <a href="sitemap/" id="sitemap-link">Terms and Conditions</a>
+    {% endblock nav %}
+    
+    
     {% block content %}{% endblock content %}
     {% block modal %}{% endblock modal %}
 
