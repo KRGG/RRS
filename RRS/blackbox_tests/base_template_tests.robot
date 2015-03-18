@@ -8,8 +8,10 @@ Suite teardown  Close Browser
 
 *** Test Cases ***
 
-Check if all required links are present
-    Element should be visible  about-link
-    Element should be visible  terms-link
-    Element should be visible  privacy-statement-link
-    Element should be visible  sitemap-link
+Check if required header links are present
+	Page Should Contain Link  xpath=//*[@id='header']//*[@id='about-link']
+
+Check if required footer links are present
+	Page Should Contain Link  xpath=//*[@id='footer']//*[@id='terms-link']
+    Page Should Contain Link  xpath=//*[@id='footer']//*[@id='privacy-policy-link']
+    Page Should Contain Link  xpath=//*[@id='footer']//*[@id='sitemap-link']
