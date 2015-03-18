@@ -4,6 +4,32 @@
     RRS - Staff
 {% endblock %}
 
-{% block content %}
-    
+{% block main_content %}
+{% load staticfiles %}
+
+    {% block staff_css %}
+      <link href="{% static "css/dashboard.css" %}" rel="stylesheet">
+    {% endblock staff_css%}
+
+    {% block template_sidebar %}
+        
+        <span class= 'row'>
+            <div class ='col-md-2 col-sm-3 sidebar'>
+                <div class='nav nav-sidebar'>
+                    <ul id='sidebar-links'>
+                        <li class='active'>Link 1</li>
+                        <li>Link 2</li>
+                        <li>Link 3</li>
+                    </ul>
+                </div>
+                {% block date_picker %}
+                <div id="datepicker"> Datepicker</div>
+                {% endblock %}
+            </div>
+        </span>
+    {% endblock %}
+    {% block content %}
+    {% endblock %}
+
 {% endblock %}
+
