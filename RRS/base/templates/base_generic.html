@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{% block title %}RRS{% endblock title %}</title>
+
+    {% block css %}
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+      <link href="{% static "css/base-sticky-footer-navbar.css" %}" rel="stylesheet">
+    {% endblock css %}
+
+  </head>
+  <body>
+  	<nav id="header" class="navbar navbar-default navbar-fixed-top">
+    {% block nav %}
+	    <div class="container">
+	        <div class="navbar-header">
+	          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+	            <span class="sr-only">Toggle navigation</span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	          </button>
+	          <a class="navbar-brand" href="#">RRS</a>
+	        </div>
+	        <div id="navbar" class="collapse navbar-collapse">
+	          <ul class="nav navbar-nav">
+	            <li><a id="about-link" href="about/">About</a></li>
+	          </ul>
+	        </div><!--/.nav-collapse -->
+	      </div>
+    {% endblock nav %}
+    </nav>
+    
+    <div class="container">
+    {% block main_content %}
+    {% endblock main_content %}
+    </div>
+    
+    <footer id="footer" class="footer">
+    {% block footer %}
+    	<div class="container">
+        	<p class="text-muted">
+        		<a id="terms-link" href="terms-of-use/">Terms of Use</a> |
+	    		<a id="privacy-policy-link" href="privacy-policy/">Privacy Policy</a> |
+	    		<a id="sitemap-link" href="sitemap/">Sitemap</a>
+	    	</p>
+      	</div>
+    {% endblock footer %}
+    </footer>
+    
+    {% block modal %}{% endblock modal %}
+
+    {% block javascript %}
+      <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    {% endblock javascript %}
+  </body>
+</html>

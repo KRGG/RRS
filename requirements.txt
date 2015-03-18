@@ -1,1 +1,6 @@
 Django==1.7.6
+decorator==3.4.0
+docutils==0.12
+robotframework==2.8.7
+robotframework-selenium2library==1.6.0
+selenium==2.45.0

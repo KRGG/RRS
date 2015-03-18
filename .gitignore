@@ -1,10 +1,16 @@
 ## Virtualenv
 ENV/
+venv/
 
 ## Python
 *.pyc
 
+## Robotframework log files
+RRS/log.html
+RRS/output.xml
+RRS/report.html
+
 ## Eclipse
 .project
 .pydevproject
-.settings/
+.settings/venv
