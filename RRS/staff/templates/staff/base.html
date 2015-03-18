@@ -9,19 +9,18 @@
 
     {% block staff_css %}
       <link href="{% static "css/dashboard.css" %}" rel="stylesheet">
+      <link href="{% static "css/rrs_staff.css" %}" rel="stylesheet">
     {% endblock staff_css%}
 
     {% block template_sidebar %}
         
         <span class= 'row'>
-            <div class ='col-md-2 col-sm-3 sidebar'>
-                <div class='nav nav-sidebar'>
-                    <ul id='sidebar-links'>
-                        <li class='active'>Link 1</li>
-                        <li>Link 2</li>
-                        <li>Link 3</li>
-                    </ul>
-                </div>
+            <div class ='col-md-3 col-sm-3 sidebar'>
+                <ul class='nav nav-sidebar'>
+                    <li><a href="#">Link 1</a></li>
+                    <li><a href="#">Link 2</a></li>
+                    <li><a href="#">Link 3</a></li>
+                </ul>
                 {% block date_picker %}
                 <div id="datepicker"> Datepicker</div>
                 {% endblock %}
