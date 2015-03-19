@@ -13,4 +13,4 @@ RRS/report.html
 ## Eclipse
 .project
 .pydevproject
-.settings/venv
+.settings/
