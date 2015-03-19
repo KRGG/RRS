@@ -10,19 +10,20 @@
     {% block staff_css %}
       <link href="{% static "css/dashboard.css" %}" rel="stylesheet">
       <link href="{% static "css/rrs_staff.css" %}" rel="stylesheet">
+      <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     {% endblock staff_css%}
 
     {% block template_sidebar %}
         
         <span class= 'row'>
-            <div class ='col-md-3 col-sm-3 sidebar'>
+            <div class ='col-md-4 col-sm-3 sidebar'>
                 <ul class='nav nav-sidebar'>
                     <li><a href="#">Link 1</a></li>
                     <li><a href="#">Link 2</a></li>
                     <li><a href="#">Link 3</a></li>
                 </ul>
                 {% block date_picker %}
-                <div id="datepicker"> Datepicker</div>
+                <div id="datepicker"></div>
                 {% endblock %}
             </div>
         </span>
@@ -30,5 +31,12 @@
     {% block content %}
     {% endblock %}
 
+    {% block staff_scripts %}
+        <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+        <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+        <script>
+            $('#datepicker').datepicker();            
+        </script>
+    {% endblock %}
 {% endblock %}
 
