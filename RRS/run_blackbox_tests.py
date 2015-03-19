@@ -17,5 +17,6 @@ if __name__ == '__main__':
     for f in os.listdir('blackbox_tests'):
         if os.path.splitext(f)[1] == '.robot':
             robot.run('blackbox_tests/base_template_tests.robot')
+            robot.run('blackbox_tests/base_customer_template_tests.robot')
     
     kill_proc_tree(server.pid)
