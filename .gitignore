@@ -1,6 +1,8 @@
 ## Virtualenv
 ENV/
 venv/
+Lib/
+Scripts/
 
 ## Python
 *.pyc
@@ -13,4 +15,4 @@ RRS/report.html
 ## Eclipse
 .project
 .pydevproject
-.settings/venv
+.settings/
