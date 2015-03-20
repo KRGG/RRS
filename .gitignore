@@ -16,3 +16,4 @@ RRS/report.html
 .project
 .pydevproject
 .settings/
+*.pyc
