@@ -1,0 +1,27 @@
+{% extends "customer/base.html" %}
+
+{% block title %}View Restaurant{% endblock %}
+
+{% block main_content %}
+<img id="banner-img" src="http://placehold.it/600x300"/>
+<span id="restaurant-name">Unknown Name</span>
+<span id="restaurant-location">Unknown Location</span>
+<span id="cuisine-type">Unknown Cuisine</span>
+<span id="price-range">Unknown Price Range</span>
+
+<form id="reservation-form">
+  <div class="form-group">
+    <label for="people-input">Table for</label>
+    <input type="number" class="form-control" id="people-input" placeholder="1">
+  </div>
+  <div class="form-group">
+    <label for="date-input">Date</label>
+    <input type="date" class="form-control" id="date-input" placeholder="Date">
+  </div>
+  <div class="form-group">
+    <label for="time-input">Time</label>
+    <input type="time" class="form-control" id="time-input" placeholder="Time">
+  </div>
+  <button id="submit-button" type="submit" class="btn btn-default">Submit</button>
+</form>
+{% endblock %}
