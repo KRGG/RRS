@@ -18,9 +18,8 @@
         <span class= 'row'>
             <div class ='col-md-4 col-sm-3 sidebar'>
                 {% block date_picker %}
-                <form>
                 <input id="datepicker-input">
-                </form>
+                <input id="today" type='button' value='Today'>
                 <div id="datepicker"></div>
                 {% endblock %}
                 {% block side_bar_links %}
@@ -43,13 +42,33 @@
         <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
         <script>
             $('#datepicker').datepicker({
+                showOtherMonths: true,
+                selectOtherMonths: true,
                 inline: true,
                 altField: '#datepicker-input'
             });
 
             $('#datepicker-input').change(function(){
-                $('#datepicker').datepicker('setDate', $(this).val());
-});        </script>
+                console.log($(this).val());
+//                $('#datepicker').datepicker('setDate', $(this).val());
+            });
+
+            
+            function getToday(){
+                var today =new Date();
+                var dd = today.getDate();
+                var mm = today.getMonth(); //January is 0!
+                var yyyy = today.getFullYear();
+                if(dd<10){
+                    dd='0'+dd
+                } 
+                if(mm<10){
+                    mm='0'+mm
+                } 
+                return mm+'/'+dd+'/'+yyyy;
+            }
+            
+        </script>
     {% endblock %}
 {% endblock %}
 
