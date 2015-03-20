@@ -1,6 +1,8 @@
 ## Virtualenv
 ENV/
 venv/
+Lib/
+Scripts/
 
 ## Python
 *.pyc
