@@ -17,13 +17,20 @@
         
         <span class= 'row'>
             <div class ='col-md-4 col-sm-3 sidebar'>
-                <ul class='nav nav-sidebar'>
-                    <li><a href="#">Link 1</a></li>
-                    <li><a href="#">Link 2</a></li>
-                    <li><a href="#">Link 3</a></li>
-                </ul>
                 {% block date_picker %}
+                <form>
+                <input id="datepicker-input">
+                </form>
                 <div id="datepicker"></div>
+                {% endblock %}
+                {% block side_bar_links %}
+                <ul class='nav nav-sidebar'>
+                    <li><a href="#">Edit Restaurant</a></li>
+                    <li><a href="#">Edit Menus</a></li>
+                    <li><a href="#">Manage Staff</a></li>
+                    <li><a href="#">Previous Reservations</a></li>
+                    <li><a href="#">Make a new reservation</a></li>
+                </ul>
                 {% endblock %}
             </div>
         </span>
@@ -35,8 +42,14 @@
         <script src="//code.jquery.com/jquery-1.10.2.js"></script>
         <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
         <script>
-            $('#datepicker').datepicker();            
-        </script>
+            $('#datepicker').datepicker({
+                inline: true,
+                altField: '#datepicker-input'
+            });
+
+            $('#datepicker-input').change(function(){
+                $('#datepicker').datepicker('setDate', $(this).val());
+});        </script>
     {% endblock %}
 {% endblock %}
 
