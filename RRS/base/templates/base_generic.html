@@ -16,24 +16,27 @@
   </head>
   <body>
   	<nav id="header" class="navbar navbar-default navbar-fixed-top">
-    {% block nav %}
-	    <div class="container">
-	        <div class="navbar-header">
-	          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-	            <span class="sr-only">Toggle navigation</span>
-	            <span class="icon-bar"></span>
-	            <span class="icon-bar"></span>
-	            <span class="icon-bar"></span>
-	          </button>
-	          <a class="navbar-brand" href="#">RRS</a>
-	        </div>
-	        <div id="navbar" class="collapse navbar-collapse">
-	          <ul class="nav navbar-nav">
-	            <li><a id="about-link" href="about/">About</a></li>
-	          </ul>
-	        </div><!--/.nav-collapse -->
-	      </div>
-    {% endblock nav %}
+  		<div class="container">
+  			<div class="container">
+		        <div class="navbar-header">
+		          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+		            <span class="sr-only">Toggle navigation</span>
+		            <span class="icon-bar"></span>
+		            <span class="icon-bar"></span>
+		            <span class="icon-bar"></span>
+		          </button>
+		          <a class="navbar-brand" href="#">RRS</a>
+		        </div>
+		        <div id="navbar" class="collapse navbar-collapse">
+		          <ul class="nav navbar-nav">
+		            <li><a id="about-link" href="about/">About</a></li>
+				    {% block nav %}
+					    
+				    {% endblock nav %}
+			    	</ul>
+				</div><!--/.nav-collapse -->
+	    	</div>
+    	</div>
     </nav>
     
     <div class="container">
@@ -42,15 +45,16 @@
     </div>
     
     <footer id="footer" class="footer">
-    {% block footer %}
     	<div class="container">
         	<p class="text-muted">
         		<a id="terms-link" href="terms-of-use/">Terms of Use</a> |
 	    		<a id="privacy-policy-link" href="privacy-policy/">Privacy Policy</a> |
 	    		<a id="sitemap-link" href="sitemap/">Sitemap</a>
-	    	</p>
-      	</div>
-    {% endblock footer %}
+			    {% block footer %}
+			    	
+			    {% endblock footer %}
+    		</p>
+    	</div>
     </footer>
     
     {% block modal %}{% endblock modal %}

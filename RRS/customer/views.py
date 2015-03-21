@@ -7,7 +7,7 @@ def index(request):
     context = {}
     return render(request, 'customer/index.html', context)
 
-def restaurant(request):
+def restaurant(request, restaurant_id):
     
     context = {}
     return render(request, 'customer/restaurant.html', context)
