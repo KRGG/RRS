@@ -1,7 +1,10 @@
-import django.test as django_test
+from django_test import TestCase, Client
 from django.core.urlresolvers import reverse
 
-class LinksSanityTests(django_test.TestCase):
+class LinksSanityTests(TestCase):
+    
+    def setUp(self):
+        self.client = Client()
     
     def test__required_links__are_alive(self):
         self._check_if_online(reverse('index'))
@@ -10,6 +13,5 @@ class LinksSanityTests(django_test.TestCase):
             args=[1]))
         
     def _check_if_online(self, url):
-        c = django_test.Client()
-        response = c.get(url)
+        response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
