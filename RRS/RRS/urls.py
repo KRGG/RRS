@@ -12,7 +12,7 @@ urlpatterns = patterns('',
     ),
     
     # Remove view/ namespace on deployment
-    url(r'^view/', include('customer.urls', namespace='view')),
+    url(r'^/', include('customer.urls', namespace='customer')),
     url(r'^staff/', include('staff.urls', namespace='staff')),
     url(r'^admin/', include(admin.site.urls)),
 )
