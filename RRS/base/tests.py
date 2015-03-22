@@ -1,4 +1,4 @@
-from django_test import TestCase, Client
+from django.test import TestCase, Client
 from django.core.urlresolvers import reverse
 
 class LinksSanityTests(TestCase):
