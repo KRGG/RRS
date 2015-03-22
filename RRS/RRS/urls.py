@@ -11,8 +11,7 @@ urlpatterns = patterns('',
         name  = 'index'
     ),
     
-    # Remove view/ namespace on deployment
-    url(r'^/', include('customer.urls', namespace='customer')),
+    url(r'^', include('customer.urls', namespace='customer')),
     url(r'^staff/', include('staff.urls', namespace='staff')),
     url(r'^admin/', include(admin.site.urls)),
 )

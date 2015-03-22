@@ -15,7 +15,7 @@ Check if generic template links are present
     Page Should Contain Link  xpath=//*[@id='footer']//*[@id='sitemap-link']
     
 Check if view restaurant page elements are present
-	Go to  http://localhost:8000/view/1
+	Go to  http://localhost:8000/restaurant/1
 	Page Should Contain Element  xpath=//*[@id='banner-img']
 	Page Should Contain Element  xpath=//*[@id='restaurant-name']
 	Page Should Contain Element  xpath=//*[@id='restaurant-location']
