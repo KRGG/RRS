@@ -4,13 +4,11 @@
 
 {% block main_content %}
     <h3> Signup </h3>
-    <form>
-        First name: <input id="first-name"><br> <br>
-        Last name: <input id="last-name"><br> <br>
-        Email: <input id="email"><br> <br>
-        Mobile: <input id="mobile"><br> <br>
-        Username: <input id="username"><br> <br>
-        Password: <input id="password" type="password"><br> <br>
-        Confirm Password: <input id="confirm-password" type="password"><br> <br><input type="Submit">
+    <form action="">
+        <table>
+        {% csrf_token %}
+        {{ form.as_table }}
+        </table>
+        <input type="submit" value="Submit" />
     </form>
 {% endblock %}
