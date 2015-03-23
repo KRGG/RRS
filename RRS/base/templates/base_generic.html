@@ -34,14 +34,12 @@
 		          <a class="navbar-brand" href="#">RRS</a>
 		        </div>
 		        <div id="navbar" class="collapse navbar-collapse">
-		          {% block nav %}
 		          <ul class="nav navbar-nav">
 		            <li><a id="about-link" href="about/">About</a></li>
-				    
+				    {% block nav %}
 					    
-				    
+				    {% endblock nav %}
 			    	</ul>
-			      {% endblock nav %}
 				</div><!--/.nav-collapse -->
 	    	</div>
     	</div>
