@@ -3,8 +3,8 @@
 {% block title %}Login{% endblock title %}
 
 {% block main_content %}
-
     <h3> Login </h3>
+    {{ error }}
     <form action= "" method="post">
         <table>
         {% csrf_token %}
