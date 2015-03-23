@@ -8,11 +8,7 @@ class LoginForm(forms.Form):
 class SignUpForm(forms.ModelForm):
     class Meta:
         model = User
-        fields = ('first_name', 'last_name', 'password')
+        fields = ('username', 'first_name', 'last_name', 'password', 'email')
     password = forms.CharField(widget=forms.PasswordInput())
     confirm_password = forms.CharField(widget=forms.PasswordInput())
-    email = forms.EmailField(max_length=64, label="Email")
 
-    def clean_email( self ):
-        email= self.cleaned_data['username']
-        return email
