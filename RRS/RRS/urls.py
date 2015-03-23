@@ -1,3 +1,4 @@
+
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 
@@ -10,6 +11,11 @@ urlpatterns = patterns('',
         view  = customer_views.index,
         name  = 'index'
     ),
+    
+    url(
+        regex = r'admin/login/$',
+        view = admin.site.login,
+         ),
     
     url(
         regex = r'login/$',
