@@ -12,6 +12,6 @@ urlpatterns = patterns(
     url(
         regex = r'restaurant/(\d+)$',
         view = views.restaurant,
-        name="view-restaurant"
+        name="restaurant"
     )
 )
