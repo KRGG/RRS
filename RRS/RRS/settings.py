@@ -67,7 +67,7 @@ DATABASES = {
     }
 }
 
-
+LOGIN_REDIRECT_URL = "/"
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
