@@ -22,6 +22,7 @@
   </head>
   {% endblock head %}
   <body>
+  	
   	<nav id="header" class="navbar navbar-default navbar-fixed-top">
   		<div class="container">
   			<div class="container">
@@ -46,9 +47,13 @@
     	</div>
     </nav>
     
-    <div class="container no-margin-nor-padding">
+    <div id="page-container">
+    
+    <div id="page-fluid-layout-base" class="container stretch-height-to-fit">
     {% block main_content %}
     {% endblock main_content %}
+    </div>
+    
     </div>
     
     <footer id="footer" class="footer">
