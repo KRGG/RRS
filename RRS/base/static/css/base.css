@@ -1,0 +1,12 @@
+/* Base template css
+-------------------------------------------------- */
+
+.container.no-margin-nor-padding {
+    margin: 0;
+    padding: 0;
+}
+
+.no-margin {
+	margin: 0
+}
+
