@@ -1,12 +1,18 @@
 /* Base template css
 -------------------------------------------------- */
 
-.container.no-margin-nor-padding {
-    margin: 0;
-    padding: 0;
-}
-
 .no-margin {
 	margin: 0
 }
 
+.stretch-height-to-fit {
+	margin: 0;
+    padding: 0;
+	height: 100%
+}
+
+#page-container {
+	position: absolute;
+	top: 50px;
+	bottom: 60px;
+}

@@ -30,9 +30,6 @@ body {
  */
 
 .sidebar {
-  height: calc(99vh - 50px - 51px);
-  left: 0;
-  bottom: 0;
   display: block;
   padding: 20px;
   overflow-x: hidden;
