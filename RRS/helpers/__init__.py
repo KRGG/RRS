@@ -1,11 +1,14 @@
 from django.test import TestCase, Client
-from django.core.urlresolvers import reverse
+from django.core.urlresolvers import resolve, reverse
 
 class LinkSanityTestCase(TestCase):
-    
-    def setUp(self):
-        self.client = Client()
-
-    def check_if_online(self, url, **kwargs):
-        response = self.client.get(reverse(url, **kwargs))
-        self.assertEqual(response.status_code, 200)
+        
+    def assert_valid_link(
+            self,
+            expected_url='',
+            url_name='',
+            **kwargs):
+        reversed_url = reverse(url_name, **kwargs)
+        self.assertEqual(expected_url, reversed_url)
+        resolver = resolve(reversed_url)
+        self.assertEqual(url_name, resolver.view_name)
