@@ -1,9 +1,9 @@
-from django.test import TestCase
+from helpers import LinkSanityTestCase
 
-
-        self.assertEqual(response.status_code, 200)
-
-class CustomerUrlsTests(TestCase):
+class CustomerLinksSanityTests(LinkSanityTestCase):
     
-    def test_index_view(self):
-        response = self.client.get(reverse('view:index'))
+    def test__required_links__are_alive(self):
+        self.check_if_online(
+            'customer:restaurant',
+            args=[1])
+        
