@@ -12,8 +12,7 @@ def signup(request):
     context = {}
     if request.method == "GET":
         form = forms.SignUpForm()
-        print form
-    if request.method == "POST":
+    elif request.method == "POST":
         form = forms.SignUpForm(request.POST)
         if form.is_valid():
             user = User.objects.create_user(form.cleaned_data["username"], form.cleaned_data["email"], 
@@ -22,7 +21,6 @@ def signup(request):
             user.last_name = form.cleaned_data["last_name"]
             user.save()
             return HttpResponseRedirect(reverse('index'))
-        else:
-            context["error"] = "Please check the details you submitted."
+        context["error"] = "Please check the details you submitted."
     context["form"] = form
     return render(request, 'accounts/signup.html', context)
