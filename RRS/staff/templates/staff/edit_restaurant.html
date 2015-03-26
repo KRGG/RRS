@@ -1,0 +1,29 @@
+{% extends "staff/base.html" %}
+
+{% load crispy_forms_tags %}
+{% load staticfiles %}
+
+{% block title %}Edit Restaurant{% endblock %}
+
+{% block content %}
+	{% if form.errors %}
+		<div class="alert alert-danger alert-dismissible" role="alert">
+  			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  			<strong>Oops!</strong> Please fill up all the fields correctly.
+		</div>
+	{% elif form.is_valid %}
+		<div class="alert alert-success alert-dismissible" role="alert">
+  			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  			<strong>Success!</strong> Restaurant details have been updated.
+		</div>
+	{% endif %}
+    {% crispy form %}
+{% endblock %}
+
+{% block javascript %}
+	{{ block.super }}
+	<script src="{% static "js/jquery.are-you-sure.js" %}"></script>
+	<script>
+		$('#id-restaurant-form').areYouSure();
+	</script>
+{% endblock %}

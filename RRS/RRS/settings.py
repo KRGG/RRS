@@ -41,7 +41,12 @@ INSTALLED_APPS = (
     'customer',
     'staff',
     'accounts',
+    # 3rd party apps
+    'crispy_forms',
 )
+
+# 3rd party app constants
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -51,6 +56,17 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+)
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+  "django.contrib.auth.context_processors.auth",
+  "django.core.context_processors.debug",
+  "django.core.context_processors.i18n",
+  "django.core.context_processors.media",
+  "django.core.context_processors.static",
+  "django.core.context_processors.tz",
+  "django.contrib.messages.context_processors.messages",
+  'django.core.context_processors.request',
 )
 
 ROOT_URLCONF = 'RRS.urls'

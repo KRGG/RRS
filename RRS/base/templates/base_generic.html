@@ -14,11 +14,7 @@
           <link href="{% static "css/base.css" %}" rel="stylesheet">
           <link href="{% static "css/base-sticky-footer-navbar.css" %}" rel="stylesheet">
         {% endblock css %}
-
-        {% block javascript %}
-          <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
-          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-        {% endblock javascript %}
+        
   </head>
   {% endblock head %}
   <body>
@@ -70,6 +66,11 @@
     </footer>
     
     {% block modal %}{% endblock modal %}
+    
+    {% block javascript %}
+      <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    {% endblock javascript %}
 
   </body>
 </html>
