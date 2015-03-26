@@ -8,4 +8,9 @@ urlpatterns = patterns('',
         view  = views.index,
         name  = 'index'
     ),
+    url(
+        regex = r'^edit-restaurant/$',
+        view  = views.edit_restaurant,
+        name  = 'edit-restaurant'
+    ),
 )

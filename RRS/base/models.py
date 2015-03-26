@@ -57,13 +57,13 @@ class Restaurant(models.Model):
     
     payment_options = models.ManyToManyField('PaymentOption')
     cuisine = models.ManyToManyField('Cuisine')
-    menu = models.ManyToManyField('Menu')
+    menu = models.ManyToManyField('Menu', blank=True)
     
     operating_hours = models.TextField()
     contact_info = models.TextField(blank=True)
     parking_info = models.TextField(blank=True)
     additional_info = models.TextField(blank=True)
-    website = models.CharField(max_length=50)
+    website = models.CharField(max_length=50, blank=True)
     
     def __str__(self):
         return self.name

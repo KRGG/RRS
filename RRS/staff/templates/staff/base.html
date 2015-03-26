@@ -8,13 +8,6 @@
 
 {% block head %}
     {{ block.super }}
-    
-    {% block javascript %}
-        {{ block.super }}
-        <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-        <script src="{% static "js/rrs_staff.js" %}"></script>
-    {% endblock %}
-
 {% endblock %}
 
 {% block main_content %}
@@ -55,5 +48,11 @@
     
     </span>
 
+{% endblock %}
+
+{% block javascript %}
+    {{ block.super }}
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="{% static "js/rrs_staff.js" %}"></script>
 {% endblock %}
 
