@@ -1,17 +1,10 @@
-from django.test import TestCase, Client
-from django.core.urlresolvers import reverse
+from helpers import LinkSanityTestCase
 
-class LinksSanityTests(TestCase):
-    
-    def setUp(self):
-        self.client = Client()
+class BaseLinksSanityTests(LinkSanityTestCase):
     
     def test__required_links__are_alive(self):
-        self._check_if_online(reverse('index'))
-        self._check_if_online(reverse(
-            'customer:view-restaurant',
-            args=[1]))
+        self.assert_valid_link(
+            expected_url='/',
+            url_name='index'
+        )
         
-    def _check_if_online(self, url):
-        response = self.client.get(url)
-        self.assertEqual(response.status_code, 200)

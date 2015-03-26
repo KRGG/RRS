@@ -10,7 +10,7 @@ urlpatterns = patterns(
         name  = 'index'
     ),
     url(
-        regex = r'restaurant/(\d+)$',
+        regex = r'restaurant/(\d+)/$',
         view = views.restaurant,
         name="view-restaurant"
     )
