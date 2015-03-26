@@ -12,3 +12,5 @@ class LinkSanityTestCase(TestCase):
         self.assertEqual(expected_url, reversed_url)
         resolver = resolve(reversed_url)
         self.assertEqual(url_name, resolver.view_name)
+        response = self.client.get(reversed_url)
+        self.assertEqual(response.status_code, 200)
