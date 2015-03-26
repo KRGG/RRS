@@ -1,10 +1,8 @@
-from django.test import TestCase
-
 from helpers import LinkSanityTestCase
 
 
 class CustomerLinksSanityTests(LinkSanityTestCase):
-    
+
     def test__required_links__are_alive(self):
         sample_restaurant_id = 1
         
@@ -13,4 +11,3 @@ class CustomerLinksSanityTests(LinkSanityTestCase):
             url_name='customer:restaurant',
             args=[sample_restaurant_id]
         )
-        
