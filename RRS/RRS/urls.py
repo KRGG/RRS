@@ -25,6 +25,7 @@ urlpatterns = patterns('',
     
     
     url('^', include('django.contrib.auth.urls'), {'template_name': 'accounts/login.html'}),
+    url(r'^', include('customer.urls', namespace='customer')),
     url(r'^staff/', include('staff.urls', namespace='staff')),
     url(r'^admin/', include(admin.site.urls)),
 )
