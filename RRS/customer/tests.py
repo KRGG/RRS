@@ -1,17 +1,16 @@
-from django.core.urlresolvers import reverse
 from django.test import TestCase
 
-import django.test as django_test
+from helpers import LinkSanityTestCase
 
-class LinksSanityTests(django_test.TestCase):
-    
-    def test__view_restaurant__is_alive(self):
-        c = django_test.Client()
-        response = c.get('/view/1/')
-        self.assertEqual(response.status_code, 200)
 
-class CustomerUrlsTests(TestCase):
+class CustomerLinksSanityTests(LinkSanityTestCase):
     
-    def test_index_view(self):
-        response = self.client.get(reverse('view:index'))
-        self.assertEqual(response.status_code, 200)
+    def test__required_links__are_alive(self):
+        sample_restaurant_id = 1
+        
+        self.assert_valid_link(
+            expected_url='/restaurant/{}/'.format(sample_restaurant_id),
+            url_name='customer:restaurant',
+            args=[sample_restaurant_id]
+        )
+        
