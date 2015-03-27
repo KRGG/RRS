@@ -16,7 +16,7 @@ Check if generic template links are present
     
 Check that location of bottom overflow content is above footer
 	Go to  http://localhost:8000/test-dedicated/overflow
-	Execute Javascript  $('#content-base').scrollTop($('#bottom-of-content').position().top);
+	Scroll '#content-base' to '#bottom-of-content'
 	${footer_y_location}=  Get Vertical Position  xpath=//*[@id='footer']
 	${content_bottom_y_location}=  Get Vertical Position  xpath=//*[@id='bottom-of-content']
 	Should Be True  ${footer_y_location} > ${content_bottom_y_location}
@@ -34,4 +34,7 @@ Check if view restaurant page elements are present
 	Page Should Contain Element  xpath=//*[@id='reservation-form']//*[@id='time-input']
 	Page Should Contain Element  xpath=//*[@id='reservation-form']//*[@id='submit-button']
 	
+*** Keywords ***
+Scroll ${scrollable} to ${element}
+	Execute Javascript  $(${scrollable}).scrollTop($(${element}).position().top);
 	
