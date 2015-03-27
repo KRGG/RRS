@@ -14,8 +14,9 @@ Check if generic template links are present
     Page Should Contain Link  xpath=//*[@id='footer']//*[@id='privacy-policy-link']
     Page Should Contain Link  xpath=//*[@id='footer']//*[@id='sitemap-link']
     
-Check that long-content scrolls down
-	Execute Javascript  $('#page-fluid-layout-base').scrollTop($('#bottom-of-content').position().top);
+Check that location of bottom overflow content is above footer
+	Go to  http://localhost:8000/test-dedicated/overflow
+	Execute Javascript  $('#content-base').scrollTop($('#bottom-of-content').position().top);
 	${footer_y_location}=  Get Vertical Position  xpath=//*[@id='footer']
 	${content_bottom_y_location}=  Get Vertical Position  xpath=//*[@id='bottom-of-content']
 	Should Be True  ${footer_y_location} > ${content_bottom_y_location}
