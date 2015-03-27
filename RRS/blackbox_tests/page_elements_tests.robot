@@ -15,11 +15,10 @@ Check if generic template links are present
     Page Should Contain Link  xpath=//*[@id='footer']//*[@id='sitemap-link']
     
 Check that long-content scrolls down
-	Element Should Not Be Visible  xpath=//*[@id='test']
-	${hi}=  Get Vertical Position  xpath=//*[@id='footer']
-	Log To Console  ${hi}
-	${hi}=  Get Vertical Position  xpath=//*[@id='test']
-	Log To Console  ${hi}
+	Execute Javascript  $('#page-fluid-layout-base').scrollTop($('#bottom-of-content').position().top);
+	${footer_y_location}=  Get Vertical Position  xpath=//*[@id='footer']
+	${content_bottom_y_location}=  Get Vertical Position  xpath=//*[@id='bottom-of-content']
+	Should Be True  ${footer_y_location} > ${content_bottom_y_location}
     
 Check if view restaurant page elements are present
 	Go to  http://localhost:8000/restaurant/1
