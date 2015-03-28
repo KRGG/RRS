@@ -41,6 +41,8 @@ INSTALLED_APPS = (
     'customer',
     'staff',
     'accounts',
+    # for testing only
+    'test_dedicated',
     # 3rd party apps
     'crispy_forms',
 )
