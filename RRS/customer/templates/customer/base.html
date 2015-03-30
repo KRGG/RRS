@@ -3,9 +3,27 @@
 {% block title %}Restaurant Reservation System{% endblock title %}
 
 {% block nav %}
-<li><a id="mobile-link" href="about/">Mobile</a></li>
-<li><a id="sign-up-link" href="about/">Sign Up</a></li>
-<li><a id="log-in-link" href="about/">Login</a></li>
+  {{ block.super }}
+  <ul class="nav navbar-nav navbar-right">
+    <li><a id="mobile-link" href="#">Mobile</a></li>
+    {% if user.is_authenticated %}
+      <li><a id="reservations-link" href="#">My Reservations</a></li>
+      <li id="account-dropdown" class="dropdown">
+		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+		  <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+		  <span class="caret"></span>
+		</a>
+	    <ul class="dropdown-menu" role="menu">
+	      <li><a id="account-settings-link" href="#">Account Settings</a></li>
+	      <li class="divider"></li>
+	      <li><a id="log-out-link" href="#">Log Out</a></li>
+	    </ul>
+	  <li>
+    {% else %}
+      <li><a id="sign-up-link" href="#">Sign Up</a></li>
+      <li><a id="log-in-link" href="#">Log In</a></li>
+    {% endif %}
+  </ul>
 {% endblock nav %}
 
 {% block main_content %}
