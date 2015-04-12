@@ -34,7 +34,7 @@ class Migration(migrations.Migration):
             bases=(models.Model,),
         ),
         migrations.CreateModel(
-            name='UserProfile',
+            name='ExtendedUser',
             fields=[
             ],
             options={
@@ -45,13 +45,13 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='customerprofile',
             name='user',
-            field=models.OneToOneField(to='accounts.UserProfile'),
+            field=models.OneToOneField(to='accounts.ExtendedUser'),
             preserve_default=True,
         ),
         migrations.AddField(
             model_name='staffprofile',
             name='user',
-            field=models.OneToOneField(to='accounts.UserProfile'),
+            field=models.OneToOneField(to='accounts.ExtendedUser'),
             preserve_default=True,
         ),
     ]
