@@ -28,5 +28,6 @@ urlpatterns = patterns('',
     url(r'^', include('customer.urls', namespace='customer')),
     url(r'^staff/', include('staff.urls', namespace='staff')),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^accounts/', include('allauth.urls')),
     url(r'^test-dedicated/', include('test_dedicated.urls', namespace='test_dedicated')),
 )
