@@ -8,6 +8,6 @@ class UserProfileAdmin(UserAdmin):
     list_filter = ('is_staff', 'is_superuser', 'groups')
 
 admin.site.unregister(User)
-admin.site.register(UserProfile, UserProfileAdmin)
+admin.site.register(ExtendedUser, UserProfileAdmin)
 admin.site.register(CustomerProfile)
 admin.site.register(StaffProfile)

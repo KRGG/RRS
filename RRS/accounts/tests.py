@@ -9,7 +9,7 @@ class UserProfileTests(TestCase):
 
     def setUp(self):
         USER_ID = 0
-        self.test_user = models.UserProfile(USER_ID)
+        self.test_user = models.ExtendedUser(USER_ID)
         self.test_user.save()
 
     def test__user_profile__returns_true_on_is_customer_if_part_of_customers_group(self): 
