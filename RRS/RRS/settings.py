@@ -51,7 +51,7 @@ INSTALLED_APPS = (
     'allauth.socialaccount',
     # 'allauth.socialaccount.providers.facebook',
     'allauth.socialaccount.providers.google',
-    # 'allauth.socialaccount.providers.twitter',
+    'allauth.socialaccount.providers.twitter',
 )
 
 # 3rd party app constants
