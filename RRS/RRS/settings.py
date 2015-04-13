@@ -82,12 +82,6 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'allauth.socialaccount.context_processors.socialaccount',
 )
 
-print BASE_DIR
-TEMPLATE_DIRS = (
-    os.path.join(BASE_DIR, 'templates'),
-    os.path.join(BASE_DIR, 'templates', 'account'),
-)
-
 AUTHENTICATION_BACKENDS = (
     # Needed to login by username in Django admin, regardless of `allauth`
     'django.contrib.auth.backends.ModelBackend',
