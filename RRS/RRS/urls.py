@@ -14,20 +14,14 @@ urlpatterns = patterns('',
     url(
         regex = r'admin/login/$',
         view = admin.site.login,
-         ),
-    
-    
-    url(
-        regex = r'signup/$',
-        view = accounts_views.signup,
-        name = 'signup'
     ),
     
-    
-    url('^', include('django.contrib.auth.urls'), {'template_name': 'accounts/login.html'}),
     url(r'^', include('customer.urls', namespace='customer')),
+    
     url(r'^staff/', include('staff.urls', namespace='staff')),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^accounts/', include('allauth.urls')),
+    #url('^', include('django.contrib.auth.urls'), {'template_name': 'accounts/login.html'}),
+    url(r'^allauth/', include('allauth.urls')),
+    url(r'^', include('accounts.urls', namespace='accounts')),
     url(r'^test-dedicated/', include('test_dedicated.urls', namespace='test_dedicated')),
 )

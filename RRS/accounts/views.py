@@ -1,24 +1,44 @@
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
-from accounts import forms
 from django.contrib.auth import authenticate
-from django.contrib.auth.models import User
+from django.contrib.auth import login as django_login
+from django.contrib.auth import logout as django_logout
 from django.core.urlresolvers import reverse
 
-   
+from forms import LoginForm, SignUpForm
+
 def signup(request):
-    context = {}
-    if request.method == "GET":
-        form = forms.SignUpForm()
-    elif request.method == "POST":
-        form = forms.SignUpForm(request.POST)
+    if request.user.is_authenticated():
+        return HttpResponseRedirect(reverse('index'))
+    
+    if request.method == 'POST':
+        form = SignUpForm(request.POST)
         if form.is_valid():
-            user = User.objects.create_user(form.cleaned_data["username"], form.cleaned_data["email"], 
-                                            form.cleaned_data["password1"])
-            user.first_name = form.cleaned_data["first_name"]
-            user.last_name = form.cleaned_data["last_name"]
-            user.save()
+            user = form.save(request)
+            user = authenticate(username=user.username, 
+                                password=form.cleaned_data['password1'])
+            django_login(request, user)
             return HttpResponseRedirect(reverse('index'))
-        context["error"] = "Please check the details you submitted."
-    context["form"] = form
+    else:
+        form = SignUpForm()
+        
+    context = { 'form': form }
     return render(request, 'accounts/signup.html', context)
+
+def login(request):
+    if request.user.is_authenticated():
+        return HttpResponseRedirect(reverse('index'))
+    
+    if request.method == 'POST':
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            return form.login(request, reverse('index'))
+    else:
+        form = LoginForm()
+        
+    context = { 'form': form }
+    return render(request, 'accounts/login.html', context)
+
+def logout(request):
+    django_logout(request)
+    return HttpResponseRedirect(reverse('index'))
