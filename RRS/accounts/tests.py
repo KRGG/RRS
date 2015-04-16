@@ -2,7 +2,7 @@ from django.contrib.auth.models import AnonymousUser, User
 from django.core.urlresolvers import reverse
 from django.test import TestCase, RequestFactory
 
-from accounts import views
+from accounts import views, forms
 from helpers import LinkSanityTestCase
 
 
@@ -17,40 +17,106 @@ def assert_view_response_to_user(test_case, url_name, user, response_code):
 class SignUpTestCase(LinkSanityTestCase):
 
     def setUp(self):
+        self.url_name = 'accounts:signup'
         self.factory = RequestFactory()
+        self.user = User.objects.create_user(
+            'customer_username', 'customer@example.com', 'customer_password')
+        self.user.save()
 
     def test__required_links__are_alive(self):
         self.assert_valid_link(
             expected_url='/signup/',
-            url_name='accounts:signup',
+            url_name=self.url_name,
         )
 
     def test__logged_in_user_redirect(self):
         """A logged in user should be redirected"""
-        assert_view_response_to_user(self, 'accounts:signup', User(0), 302)
+        assert_view_response_to_user(self, self.url_name, self.user, 302)
 
     def test__anonymous_user_ok(self):
         """User that is not logged in should be able to view this page"""
         assert_view_response_to_user(
-            self, 'accounts:signup', AnonymousUser(), 200)
+            self, self.url_name, AnonymousUser(), 200)
+
+    def test__form_complete_data(self):
+        complete_form_data = {'email': 'email@example.com',
+                              'first_name': 'firstname',
+                              'last_name': 'lastname',
+                              'password1': 'password',
+                              'password2': 'password'}
+
+        form = forms.SignUpForm(data=complete_form_data)
+        self.assertTrue(form.is_valid())
+
+    def test__form_missing_required_data(self):
+        required_form_fields = [
+            'email', 'first_name', 'last_name', 'password1', 'password2']
+
+        reverse_url = reverse(self.url_name)
+        response = self.client.post(reverse_url)
+
+        for field in required_form_fields:
+            self.assertFormError(
+                response, 'form', field, 'This field is required.')
+
+    def test__form_wrong_data(self):
+        wrong_form_data = {'email': 'not an email',
+                     'first_name': '',
+                     'last_name': '',
+                     'password1': 'password1',
+                     'password2': 'password2'}
+
+        form = forms.SignUpForm(data=wrong_form_data)
+        self.assertFalse(form.is_valid())
 
 
 class LoginTestCase(LinkSanityTestCase):
 
+    def setUp(self):
+        self.factory = RequestFactory()
+        self.user = User.objects.create_user(
+            'customer_username', 'customer@example.com', 'customer_password')
+        self.user.save()
+        self.url_name = 'accounts:login'
+
     def test__required_links__are_alive(self):
         self.assert_valid_link(
             expected_url='/login/',
-            url_name='accounts:login',
+            url_name=self.url_name,
         )
 
     def test__logged_in_user_redirect(self):
         """A logged in user should be redirected"""
-        assert_view_response_to_user(self, 'accounts:signup', User(0), 302)
+        assert_view_response_to_user(self, self.url_name, User(0), 302)
 
     def test__anonymous_user_ok(self):
         """User that is not logged in should be able to view this page"""
         assert_view_response_to_user(
-            self, 'accounts:signup', AnonymousUser(), 200)
+            self, self.url_name, AnonymousUser(), 200)
+
+    def test__form_valid_data(self):
+        valid_form_data = {'login': 'customer@example.com',
+                              'password': 'customer_password'}
+
+        form = forms.LoginForm(data=valid_form_data)
+        self.assertTrue(form.is_valid())
+
+    def test__form_missing_required_data(self):
+        required_form_fields = ['login', 'password']
+
+        reverse_url = reverse(self.url_name)
+        response = self.client.post(reverse_url)
+
+        for field in required_form_fields:
+            self.assertFormError(
+                response, 'form', field, 'This field is required.')
+
+    def test__form_wrong_data(self):
+        wrong_form_data = {'login': 'email@example.com',
+                              'password': 'password'}
+
+        form = forms.LoginForm(data=wrong_form_data)
+        self.assertFalse(form.is_valid())
 
 
 class LogoutTestCase(LinkSanityTestCase):
