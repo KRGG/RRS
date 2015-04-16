@@ -129,8 +129,16 @@ STATICFILES_DIRS = (
     "staff", "/staff/static",
 )
 
-SOCIALACCOUNT_QUERY_EMAIL = True
+# Allauth settings
+ACCOUNT_FORMS = { 'signup':'accounts.forms.SignUpForm', 'login':'accounts.forms.LoginForm' }
+ACCOUNT_LOGOUT_ON_GET = True
 
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_UNIQUE_EMAIL = True
+LOGIN_REDIRECT_URL = "/"
+SOCIALACCOUNT_QUERY_EMAIL = True
 SOCIALACCOUNT_PROVIDERS = \
     {
         'google':

@@ -1,16 +1,35 @@
-{% extends "base.html" %}
+{% extends "accounts/base.html" %}
 
-{% block title %}Login{% endblock title %}
+{% load crispy_forms_tags %}
+{% load socialaccount %}
+{% load staticfiles %}
+
+{% block title %}Log In{% endblock title %}
+
+{% block css %}
+	{{ block.super }}
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-social/4.8.0/bootstrap-social.css">
+	<link rel="stylesheet" href="{% static 'css/forms.css' %}" rel="stylesheet">
+{% endblock css %}
 
 {% block main_content %}
-    <h3> Login </h3>
-    {{ error }}
-    <form action= "" method="post">
-        <table>
-        {% csrf_token %}
-        {{ form.as_table }}
-        </table>
-        <input type="submit" value="Submit" />
-    </form>
-
-{% endblock %}
+<div class="container">
+	<br>
+	<div class="form-container well center-block">
+		<h3>Log in with your email</h3>
+	    {% crispy form %}
+		<hr>
+		<h3>Or use your social account</h3>
+		<a class="btn btn-lg btn-block btn-social btn-facebook" href="{% provider_login_url 'facebook' %}">
+    		<i class="fa fa-facebook"></i>Log in with Facebook
+ 		</a>
+ 		<a class="btn btn-lg btn-block btn-social btn-google-plus" href="{% provider_login_url 'google' %}">
+    		<i class="fa fa-google-plus"></i>Log in with Google
+ 		</a>
+		<a class="btn btn-lg btn-block btn-social btn-twitter" href="{% provider_login_url 'twitter' %}">
+    		<i class="fa fa-twitter"></i>Log in with Twitter
+ 		</a>
+    </div>
+</div>
+{% endblock main_content %}
