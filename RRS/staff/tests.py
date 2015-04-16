@@ -1,7 +1,5 @@
 from django.contrib.auth.models import User
-from django.core.urlresolvers import resolve, reverse
-from django.test import TestCase
-from django.test.client import Client
+from django.core.urlresolvers import reverse
 
 from base import models as base_models
 from helpers import LinkSanityTestCase
