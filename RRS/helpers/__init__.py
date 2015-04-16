@@ -7,10 +7,11 @@ class LinkSanityTestCase(TestCase):
             self,
             expected_url='',
             url_name='',
+            status_code = 200,
             **kwargs):
         reversed_url = reverse(url_name, **kwargs)
         self.assertEqual(expected_url, reversed_url)
         resolver = resolve(reversed_url)
         self.assertEqual(url_name, resolver.view_name)
         response = self.client.get(reversed_url)
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, status_code)
