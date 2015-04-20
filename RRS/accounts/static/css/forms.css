@@ -1,0 +1,33 @@
+.form-container {
+  max-width: 350px
+}
+.form-group {
+  margin-bottom: 0;
+}
+.form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-control:focus {
+  z-index: 2;
+}
+.form-input-top {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-input-middle {
+  margin-top: -1px;
+  border-radius: 0;
+}
+.form-input-bottom {
+  margin-top: -1px;
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
