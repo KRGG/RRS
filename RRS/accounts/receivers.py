@@ -21,4 +21,4 @@ def get_name_from_social_account(account):
 
     elif account.provider == Provider.TWITTER:
         name = account.extra_data[Provider.Data.FULL_NAME]
-        return name.split()[0], name.split()[1]
+        return name.split(' ', 1)
