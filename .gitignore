@@ -17,3 +17,4 @@ RRS/report.html
 .pydevproject
 .settings/venv
 *.pyc
+*.prefs
