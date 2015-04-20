@@ -7,7 +7,8 @@ from django.core.urlresolvers import reverse
 from django.test import TestCase, RequestFactory
 
 from accounts import views, forms, receivers
-from helpers import LinkSanityTestCase, status
+from helpers import LinkSanityTestCase
+from helpers.constants import Status, Provider
 
 
 NEW_RECORD = 0
@@ -25,14 +26,14 @@ def assert_view_response_to_user(test_case, url_name, user, response_code):
 
 
 def test_social_signed_up_signal(test_case, provider, user):
-    if provider == receivers.PROVIDER_FACEBOOK:
-        extra_data = {receivers.FACEBOOK_FIRST_NAME_DATA: FIRST_NAME,
-                      receivers.FACEBOOK_LAST_NAME_DATA: LAST_NAME}
-    elif provider == receivers.PROVIDER_GOOGLE:
-        extra_data = {receivers.GOOGLE_FIRST_NAME_DATA: FIRST_NAME,
-                      receivers.GOOGLE_LAST_NAME_DATA: LAST_NAME}
-    elif provider == receivers.PROVIDER_TWITTER:
-        extra_data = {receivers.FULL_NAME_DATA: FULL_NAME}
+    if provider == Provider.FACEBOOK:
+        extra_data = {Provider.Data.FACEBOOK_FIRST_NAME: FIRST_NAME,
+                      Provider.Data.FACEBOOK_LAST_NAME: LAST_NAME}
+    elif provider == Provider.GOOGLE:
+        extra_data = {Provider.Data.GOOGLE_FIRST_NAME: FIRST_NAME,
+                      Provider.Data.GOOGLE_LAST_NAME: LAST_NAME}
+    elif provider == Provider.TWITTER:
+        extra_data = {Provider.Data.FULL_NAME: FULL_NAME}
 
     socialAccount = allauth_models.SocialAccount(
         user=user, provider=provider, extra_data=json.dumps(extra_data))
@@ -66,7 +67,7 @@ class SignUpTestCase(LinkSanityTestCase):
     def test__logged_in_user_redirect(self):
         '''A logged in user should be redirected'''
         assert_view_response_to_user(
-            self, self.url_name, self.user, status.HTTP_302_FOUND)
+            self, self.url_name, self.user, Status.HTTP_302_FOUND)
 
     def test__anonymous_user_ok(self):
         '''User that is not logged in should be able to view this page'''
@@ -104,17 +105,10 @@ class SignUpTestCase(LinkSanityTestCase):
         form = forms.SignUpForm(data=wrong_form_data)
         self.assertFalse(form.is_valid())
 
-    def test__user_signed_up_signal_facebook(self):
-        test_social_signed_up_signal(
-            test_case=self, provider=receivers.PROVIDER_FACEBOOK, user=self.user)
-
-    def test__user_signed_up_signal_google(self):
-        test_social_signed_up_signal(
-            test_case=self, provider=receivers.PROVIDER_GOOGLE, user=self.user)
-
-    def test__user_signed_up_signal_twitter(self):
-        test_social_signed_up_signal(
-            test_case=self, provider=receivers.PROVIDER_TWITTER, user=self.user)
+    def test__user_signed_up_signal(self):
+        for provider in Provider.LIST:
+            test_social_signed_up_signal(
+                test_case=self, provider=provider, user=User(NEW_RECORD))
 
 
 class LoginTestCase(LinkSanityTestCase):
@@ -135,12 +129,12 @@ class LoginTestCase(LinkSanityTestCase):
     def test__logged_in_user_redirect(self):
         '''A logged in user should be redirected'''
         assert_view_response_to_user(
-            self, self.url_name, User(NEW_RECORD), status.HTTP_302_FOUND)
+            self, self.url_name, User(NEW_RECORD), Status.HTTP_302_FOUND)
 
     def test__anonymous_user_ok(self):
         '''User that is not logged in should be able to view this page'''
         assert_view_response_to_user(
-            self, self.url_name, AnonymousUser(), status.HTTP_200_OK)
+            self, self.url_name, AnonymousUser(), Status.HTTP_200_OK)
 
     def test__form_valid_data(self):
         valid_form_data = {'login': 'customer@example.com',
@@ -173,5 +167,5 @@ class LogoutTestCase(LinkSanityTestCase):
         self.assert_valid_link(
             expected_url='/logout/',
             url_name='accounts:logout',
-            status_code=status.HTTP_302_FOUND
+            status_code=Status.HTTP_302_FOUND
         )
