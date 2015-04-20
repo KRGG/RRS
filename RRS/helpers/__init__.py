@@ -1,7 +1,7 @@
 from django.test import TestCase, Client
 from django.core.urlresolvers import resolve, reverse
 
-from helpers import status
+from helpers.constants import Status
 
 class LinkSanityTestCase(TestCase):
         
@@ -9,7 +9,7 @@ class LinkSanityTestCase(TestCase):
             self,
             expected_url='',
             url_name='',
-            status_code = status.HTTP_200_OK,
+            status_code = Status.HTTP_200_OK,
             **kwargs):
         reversed_url = reverse(url_name, **kwargs)
         self.assertEqual(expected_url, reversed_url)
