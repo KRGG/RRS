@@ -1,6 +1,7 @@
 *** Settings ***
 
 Documentation  Verifies presence of required components per page
+Library  HttpLibrary.HTTP
 Library  Selenium2Library
 Suite setup  Open Browser  http://localhost:8000/  browser=googlechrome
 Suite teardown  Close Browser
@@ -13,16 +14,18 @@ Check if generic template links are present
 	Page Should Contain Link  xpath=//*[@id='footer']//*[@id='terms-link']
     Page Should Contain Link  xpath=//*[@id='footer']//*[@id='privacy-policy-link']
     Page Should Contain Link  xpath=//*[@id='footer']//*[@id='sitemap-link']
+    Link Should Be Accessible  xpath=//*[@id='header']//*[@id='log-in-link']
+    Link Should Be Accessible  xpath=//*[@id='header']//*[@id='sign-up-link']
     
 Check that location of bottom overflow content is above footer
-	Go to  http://localhost:8000/test-dedicated/overflow
+	Go to  http://localhost:8000/test-dedicated/overflow/
 	Scroll '#content-base' to '#bottom-of-content'
 	${footer_y_location}=  Get Vertical Position  xpath=//*[@id='footer']
 	${content_bottom_y_location}=  Get Vertical Position  xpath=//*[@id='bottom-of-content']
 	Should Be True  ${footer_y_location} > ${content_bottom_y_location}
     
 Check if view restaurant page elements are present
-	Go to  http://localhost:8000/restaurant/1
+	Go to  http://localhost:8000/restaurant/1/
 	Page Should Contain Element  xpath=//*[@id='banner-img']
 	Page Should Contain Element  xpath=//*[@id='restaurant-name']
 	Page Should Contain Element  xpath=//*[@id='restaurant-location']
@@ -35,6 +38,10 @@ Check if view restaurant page elements are present
 	Page Should Contain Element  xpath=//*[@id='reservation-form']//*[@id='submit-button']
 	
 *** Keywords ***
+Link Should Be Accessible
+	[Arguments]  ${locator}
+	${url}=  Get Element Attribute  ${locator}@href
+    GET  ${url}
 Scroll ${scrollable} to ${element}
 	Execute Javascript  $(${scrollable}).scrollTop($(${element}).position().top);
 	
