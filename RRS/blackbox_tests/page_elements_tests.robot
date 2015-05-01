@@ -3,8 +3,6 @@
 Documentation  Verifies presence of required components per page
 Library  HttpLibrary.HTTP
 Library  Selenium2Library
-Suite setup  Open Browser  http://localhost:8000/  browser=googlechrome
-Suite teardown  Close Browser
 
 
 *** Test Cases ***
