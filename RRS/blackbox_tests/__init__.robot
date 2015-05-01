@@ -1,4 +1,5 @@
 *** Settings ***
+
 Library  Selenium2Library
 Library  robot_libraries.DjangoLibrary
 Resource  resources/user_dependent_variables.robot
