@@ -12,3 +12,5 @@ Customer Can Search for a Restaurant With Designated Criteria
 	Click Element  xpath=//*[contains(@class, 'ui-datepicker-today')]
 	Click Element  xpath=//*[@id='search-form']//*[@id='time-input']
 	Click Element  xpath=//*[@class='ui-timepicker-list']/li[1]
+	Input Text  xpath=//*[@id='search-form']//*[@id='restaurant-property-input']  Metro Manila
+	Click Button  xpath=//*[@id='search-form']//*[@id='submit-button']

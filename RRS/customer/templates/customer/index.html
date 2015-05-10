@@ -11,12 +11,14 @@
       <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     {% endblock css %}
 
-	<form id='search-form'>
-		People: <select id='party-size-input' form='search-form'>
+	<form id="search-form">
+		People: <select id="party-size-input" form="search-form">
 			<option value=2>2</option>
 		</select>
-		Date: <input id='date-input' type="text">
-		Time: <input id='time-input' type="text">
+		<input id="date-input" type="text" value="Date">
+		<input id="time-input" type="text" value="Time">
+		<input id="restaurant-property-input" type="text" value="Restaurant, Cuisine, or Location">
+		<input id="submit-button" type="submit" value="Submit">
 	</form>
 
 {% endblock %}
