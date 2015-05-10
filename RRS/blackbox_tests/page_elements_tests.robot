@@ -40,6 +40,7 @@ Link Should Be Accessible
 	[Arguments]  ${locator}
 	${url}=  Get Element Attribute  ${locator}@href
     GET  ${url}
+    
 Scroll ${scrollable} to ${element}
 	Execute Javascript  $(${scrollable}).scrollTop($(${element}).position().top);
 	
