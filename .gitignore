@@ -18,3 +18,4 @@ RRS/report.html
 .settings/venv
 *.pyc
 *.prefs
+RRS/blackbox_tests/resources/user_dependent_variables.robot
