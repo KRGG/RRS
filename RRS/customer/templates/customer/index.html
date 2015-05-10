@@ -10,6 +10,7 @@
 	  {{ block.super }}
       <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     {% endblock css %}
+<<<<<<< HEAD
     
     <div id="branding" class="row no-margin" >
 	  <div class="col-xs-10">
@@ -53,6 +54,16 @@
 	  </div>
 	</div>
 		
+=======
+
+	<form id='search-form'>
+		People: <select id='party-size-input' form='search-form'>
+			<option value=2>2</option>
+		</select>
+		Date: <input id='date-input' type="text">
+		Time: <input id='time-input' type="text">
+	</form>
+>>>>>>> Add party size, date, and time to search form
 
 {% endblock %}
 
@@ -60,8 +71,16 @@
     {{ block.super }}
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script src="{% static "js/jquery.timepicker.min.js" %}"></script>
+<<<<<<< HEAD
     <script src="{% static "js/rrs_customer.js" %}"></script>
     <script>
 	  
+=======
+    <script>
+	  $(function() {
+	    $("#date-input").datepicker();
+	    $("#time-input").timepicker();
+	  });
+>>>>>>> Add party size, date, and time to search form
 	</script>
 {% endblock %}

@@ -36,6 +36,7 @@ Check if view restaurant page elements are present
 	
 *** Keywords ***
     
+    
 Scroll ${scrollable} to ${element}
 	Execute Javascript  $(${scrollable}).scrollTop($(${element}).position().top);
 	
