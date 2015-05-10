@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 {% load staticfiles %}
 <html lang="en">
+	<head>
     {% block head %}
-      <head>
+      
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,8 +14,8 @@
           <link rel="stylesheet" href="{% static 'css/base.css' %}">
         {% endblock css %}
         
-  </head>
   {% endblock head %}
+  </head>
   <body>
   	
   	<nav id="header" class="navbar navbar-default navbar-fixed-top">
