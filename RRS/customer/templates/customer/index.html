@@ -10,16 +10,33 @@
 	  {{ block.super }}
       <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     {% endblock css %}
-
-	<form id="search-form">
-		People: <select id="party-size-input" form="search-form">
-			<option value=2>2</option>
-		</select>
-		<input id="date-input" type="text" value="Date">
-		<input id="time-input" type="text" value="Time">
-		<input id="restaurant-property-input" type="text" value="Restaurant, Cuisine, or Location">
-		<input id="submit-button" type="submit" value="Submit">
-	</form>
+    
+    <div class="row no-margin" style="height: 55%">
+	  <div class="col-xs-10">
+	  	<div id="logo" class="col-xs-12">
+	  	</div>
+	  	<div id="tagline" class="col-xs-12">
+	  	</div>
+	  </div>
+	  <div id="mobile-store-icons" class="col-xs-2">
+	  </div>
+	</div>
+	<div class="row no-margin">
+	  <div class="col-xs-12" style="display: inline-block">
+	    <form id="search-form" style="text-align: center">
+		  <input id="restaurant-property-input" type="text" placeholder="Restaurant, Cuisine, or Location">
+		    <select id="party-size-input" form="search-form">
+		      <option value="" disabled selected>People</option>
+		  	  <option value=2>2</option>
+		    </select>
+		  <input id="date-input" type="text" value="Date">
+		  <input id="time-input" type="text" value="Time">
+			
+		  <input id="submit-button" type="submit" value="Submit">
+	    </form>
+	  </div>
+	</div>
+		
 
 {% endblock %}
 
@@ -31,6 +48,7 @@
 	  $(function() {
 	    $("#date-input").datepicker();
 	    $("#time-input").timepicker();
+	    $("#restaurant-property-input").attr('size',$("#restaurant-property-input").attr('placeholder').length);
 	  });
 	</script>
 {% endblock %}
