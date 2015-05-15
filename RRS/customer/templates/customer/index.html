@@ -63,5 +63,9 @@
     <script src="{% static "js/jquery.timepicker.min.js" %}"></script>
     <script src="{% static "js/rrs_customer.js" %}"></script>
     <script>
+	    $("#date-input").datepicker();
+	      showOn: "button",
+	      buttonText: "<span class=\"caret\"></span>"
+	    });
 	</script>
 {% endblock %}
