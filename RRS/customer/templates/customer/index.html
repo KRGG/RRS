@@ -24,13 +24,21 @@
 	<div class="row no-margin">
 	  <div class="col-xs-12" style="display: inline-block">
 	    <form id="search-form" style="text-align: center">
+	    	
 		  <input id="restaurant-property-input" class="form-element" type="text" placeholder="Restaurant, Cuisine, or Location">
 		    <select id="party-size-input" class="form-element" form="search-form">
 		      <option value="" disabled selected>People</option>
 		  	  <option value=2>2</option>
 		    </select>
-		  <input id="date-input" class="form-element" type="text" disabled placeholder="Date">
-		  <input id="time-input" class="form-element" type="text" placeholder="Time">
+		    
+		  <input id="date-input" class="form-element" type="text" placeholder="Date">
+		  
+		  <div style="display: inline-flex">
+		  <input id="time-input" class="form-element" type="text" placeholder="Time" style="float: left; display: inline">
+		  <button type="button" class="ui-timepicker-trigger" style="float: left; display: inline">
+		  	<span class="caret"></span>
+		  </button>
+		  </div>
 			
 		  <input id="submit-button" class="btn btn-primary form-element" type="submit" value="Search">
 	    </form>
@@ -50,7 +58,13 @@
 	      showOn: "button",
 	      buttonText: "<span class=\"caret\"></span>"
 	    });
+		$(".ui-timepicker-trigger").on("click", function(){
+		  $(".ui-timepicker-input").timepicker("show");
+		});
 	    $("#time-input").timepicker();
+	    $(".ui-timepicker-input").on("click", function(){
+		  $(".ui-timepicker-input").timepicker("hide");
+		});
 	    $("#restaurant-property-input").attr('size',$("#restaurant-property-input").attr('placeholder').length);
 	  });
 	</script>
