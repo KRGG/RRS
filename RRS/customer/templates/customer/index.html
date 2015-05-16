@@ -22,13 +22,13 @@
 	  </div>
 	</div>
 	<div class="row no-margin">
-<<<<<<< HEAD
-	<form id="search-form">
-	      
-	      {{ search_form.restaurant_property }}
-	      
+	  <div class="col-xs-12" style="display: inline-block">
+	    <form id="search-form" style="text-align: center">
+	    	
+		  <input id="restaurant-property-input" class="form-element" type="text" placeholder="Restaurant, Cuisine, or Location">
+		    
 		  <div class="input-group">
-		    {{ search_form.party_size }}
+		    <input id="party-size-input" class="form-element with-trigger" type="text" placeholder="People">
 		    <button id="party-size-input-trigger" class="text-input-trigger dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button">
 		  	  <span class="caret"></span>
 		    </button>
@@ -38,40 +38,14 @@
 		  </div>
 		  
 		  <div class="input-group">
-		    {{ search_form.date }}
+		    <input id="date-input" class="form-element with-trigger" type="text" placeholder="Date">
 		  </div>
 		  
 		  <div class="input-group">
-		    {{ search_form.time }}
+		    <input id="time-input" class="form-element with-trigger" type="text" placeholder="Time">
 		    <button id="time-input-trigger" class="text-input-trigger" type="button">
 		  	  <span class="caret"></span>
 		    </button>
-=======
-	  <div class="col-xs-12" style="display: inline-block">
-	    <form id="search-form" style="text-align: center">
-	    	
-		  <input id="restaurant-property-input" class="form-element" type="text" placeholder="Restaurant, Cuisine, or Location">
-		    <select id="party-size-input" class="form-element" form="search-form">
-		      <option value="" disabled selected>People</option>
-		  	  <option value=2>2</option>
-		    </select>
-		    
-		  <input id="date-input" class="form-element" type="text" placeholder="Date">
-		  
-<<<<<<< HEAD
-		  <div style="display: inline-flex">
-		  <input id="time-input" class="form-element" type="text" placeholder="Time" style="float: left; display: inline">
-		  <button type="button" class="ui-timepicker-trigger" style="float: left; display: inline">
-		  	<span class="caret"></span>
-		  </button>
->>>>>>> Added a trigger button for time input
-=======
-		  <div class="form-element-group">
-		    <input id="time-input" class="form-element form-element-component" type="text" placeholder="Time">
-		    <button type="button" class="ui-timepicker-trigger form-element-component">
-		  	  <span class="caret"></span>
-		    </button>
->>>>>>> Refactor
 		  </div>
 			
 		  <input id="submit-button" class="btn btn-primary form-element" type="submit" value="Search" style="margin-bottom: 3px">
@@ -80,31 +54,32 @@
 	</div>
 		
 
-
-
 {% endblock %}
 
 {% block javascript %}
     {{ block.super }}
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script src="{% static "js/jquery.timepicker.min.js" %}"></script>
-    <script src="{% static "js/rrs_customer.js" %}"></script>
     <script>
-	    $("#date-input").datepicker();
+	  $(function() {
+	    $("#date-input").datepicker({
 	      showOn: "button",
 	      buttonText: "<span class=\"caret\"></span>"
 	    });
-<<<<<<< HEAD
-=======
-		$(".ui-timepicker-trigger").on("click", function(){
+	    $(".for-input > li").click(function(){
+	    	$(this).parent().siblings("input").val($(this).text());
+	    });
+		$("#time-input-trigger").click(function(){
 		  $(".ui-timepicker-input").timepicker("show");
 		});
 	    $("#time-input").timepicker();
-	    $(".ui-timepicker-input").on("click", function(){
+	    $(".ui-timepicker-input").click(function(){
+		  $(".ui-timepicker-input").timepicker("hide");
+		});
+		$(".ui-timepicker-input").click(function(){
 		  $(".ui-timepicker-input").timepicker("hide");
 		});
 	    $("#restaurant-property-input").attr('size',$("#restaurant-property-input").attr('placeholder').length);
 	  });
->>>>>>> Added a trigger button for time input
 	</script>
 {% endblock %}
