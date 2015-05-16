@@ -15,8 +15,20 @@
 	overflow: auto;
 }
 
+.row {
+  .no-margin();
+  display: table;
+  width: 100%;
+}
+
+[class*="col-"] {
+    float: none;
+    display: table-cell;
+    vertical-align: top;
+}
+
 #page-container {
 	position: absolute;
 	top: @header-height;
-	bottom: @footer-height;
+	width: 100%;
 }

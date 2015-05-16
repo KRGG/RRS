@@ -41,27 +41,31 @@
     	</div>
     </nav>
     
-    <div id="page-container">
+    <div id="page-container" class="row no-margin">
     
-    <div id="content-base" class="container col-xs-12 stretch-height-to-fit">
-    {% block main_content %}
-    {% endblock main_content %}
+    <div class="row no-margin">
+	    <div id="content-base" class="container col-xs-12 stretch-height-to-fit">
+	    {% block main_content %}
+	    {% endblock main_content %}
+	    </div>
+	</div>
+    
+		<div class="row">
+		    <footer id="footer" class="footer col-xs-12">
+		    	<div class="container">
+		        	<p class="text-muted">
+		        		<a id="terms-link" href="terms-of-use/">Terms of Use</a> |
+			    		<a id="privacy-policy-link" href="privacy-policy/">Privacy Policy</a> |
+			    		<a id="sitemap-link" href="sitemap/">Sitemap</a>
+					    {% block footer %}
+					    	
+					    {% endblock footer %}
+		    		</p>
+		    	</div>
+		    </footer>
+		</div>
+    
     </div>
-    
-    </div>
-    
-    <footer id="footer" class="footer">
-    	<div class="container">
-        	<p class="text-muted">
-        		<a id="terms-link" href="terms-of-use/">Terms of Use</a> |
-	    		<a id="privacy-policy-link" href="privacy-policy/">Privacy Policy</a> |
-	    		<a id="sitemap-link" href="sitemap/">Sitemap</a>
-			    {% block footer %}
-			    	
-			    {% endblock footer %}
-    		</p>
-    	</div>
-    </footer>
     
     {% block modal %}{% endblock modal %}
     
