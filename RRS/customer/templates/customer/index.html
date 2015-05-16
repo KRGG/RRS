@@ -26,16 +26,24 @@
 	    <form id="search-form" style="text-align: center">
 	    	
 		  <input id="restaurant-property-input" class="form-element" type="text" placeholder="Restaurant, Cuisine, or Location">
-		    <select id="party-size-input" class="form-element" form="search-form">
-		      <option value="" disabled selected>People</option>
-		  	  <option value=2>2</option>
-		    </select>
 		    
-		  <input id="date-input" class="form-element" type="text" placeholder="Date">
+		  <div class="input-group">
+		    <input id="party-size-input" class="form-element with-trigger" type="text" placeholder="People">
+		    <button id="party-size-input-trigger" class="text-input-trigger dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button">
+		  	  <span class="caret"></span>
+		    </button>
+		    <ul id="party-size-input-list" class="dropdown-menu for-input" role="menu">
+              <li><a href="#">2</a></li>
+            </ul>
+		  </div>
 		  
-		  <div class="form-element-group">
-		    <input id="time-input" class="form-element form-element-component" type="text" placeholder="Time">
-		    <button type="button" class="ui-timepicker-trigger form-element-component">
+		  <div class="input-group">
+		    <input id="date-input" class="form-element with-trigger" type="text" placeholder="Date">
+		  </div>
+		  
+		  <div class="input-group">
+		    <input id="time-input" class="form-element with-trigger" type="text" placeholder="Time">
+		    <button id="time-input-trigger" class="text-input-trigger" type="button">
 		  	  <span class="caret"></span>
 		    </button>
 		  </div>
@@ -58,11 +66,17 @@
 	      showOn: "button",
 	      buttonText: "<span class=\"caret\"></span>"
 	    });
-		$(".ui-timepicker-trigger").on("click", function(){
+	    $(".for-input > li").click(function(){
+	    	$(this).parent().siblings("input").val($(this).text());
+	    });
+		$("#time-input-trigger").click(function(){
 		  $(".ui-timepicker-input").timepicker("show");
 		});
 	    $("#time-input").timepicker();
-	    $(".ui-timepicker-input").on("click", function(){
+	    $(".ui-timepicker-input").click(function(){
+		  $(".ui-timepicker-input").timepicker("hide");
+		});
+		$(".ui-timepicker-input").click(function(){
 		  $(".ui-timepicker-input").timepicker("hide");
 		});
 	    $("#restaurant-property-input").attr('size',$("#restaurant-property-input").attr('placeholder').length);
