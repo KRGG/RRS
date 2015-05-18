@@ -15,13 +15,13 @@
 	overflow: auto;
 }
 
-.row {
+.cols-same-height {
   .no-margin();
   display: table;
   width: 100%;
 }
 
-[class*="col-"] {
+.cols-same-height > [class*="col-"] {
     float: none;
     display: table-cell;
     vertical-align: top;

@@ -44,10 +44,12 @@
     <div id="page-container" class="row no-margin">
     
     <div class="row no-margin">
-	    <div id="content-base" class="container col-xs-12 stretch-height-to-fit">
-	    {% block main_content %}
-	    {% endblock main_content %}
-	    </div>
+    	{% block page %}
+		    <div id="content-base" class="container col-xs-12 stretch-height-to-fit">
+		    {% block main_content %}
+		    {% endblock main_content %}
+		    </div>
+	    {% endblock page %}
 	</div>
     
 		<div class="row">
