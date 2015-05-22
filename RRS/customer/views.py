@@ -1,10 +1,11 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 
+from .forms import SearchForm
 
 def index(request):
     
-    context = {}
+    context = {'search_form': SearchForm()}
     return render(request, 'customer/index.html', context)
 
 def restaurant(request, restaurant_id):
