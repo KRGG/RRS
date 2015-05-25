@@ -7,8 +7,10 @@ class Area(models.Model):
         return self.name
 
 class Location(models.Model):
+    area = models.ForeignKey('Area')
     address = models.CharField(max_length=200)
-    # Add geolocation field
+    longitude = models.FloatField()
+    latitude = models.FloatField()
     
     def __str__(self):
         return self.address
@@ -50,7 +52,6 @@ class Restaurant(models.Model):
     description = models.TextField(blank=True)
     # Add image/s field
     
-    area = models.ForeignKey('Area')
     location = models.ForeignKey('Location')
     price_range = models.ForeignKey('PriceRange')
     dress_code = models.ForeignKey('DressCode')
