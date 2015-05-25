@@ -10,7 +10,7 @@
         <title>{% block title %}RRS{% endblock title %}</title>
 
         {% block css %}
-          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+          <link rel="stylesheet" href="{% static 'css/base.css' %}">
         {% endblock css %}
         
   </head>
@@ -40,7 +40,7 @@
     	</div>
     </nav>
     
-    <div id="body" class="container" style="width: 100%; min-height: calc(100vh - 60px); padding: 60px 0 30px">
+    <div id="body" class="container">
     	{% block page %}
 		    <div class="container">
 		    {% block main_content %}
@@ -49,7 +49,7 @@
 	    {% endblock page %}
 	</div>
 
-    <footer id="footer" class="footer" style="width:100%;height:60px;background-color:#f5f5f5">
+    <footer id="footer" class="footer">
     	<div class="container">
         	<p class="text-muted" style="margin:20px 0">
         		<a id="terms-link" href="terms-of-use/">Terms of Use</a> |
