@@ -17,13 +17,6 @@ Check if generic template links are present
     Link Should Be Accessible  xpath=//*[@id='header']//*[@id='log-in-link']
     Link Should Be Accessible  xpath=//*[@id='header']//*[@id='sign-up-link']
     
-Check that location of bottom overflow content is above footer
-	Go to  http://localhost:8000/test-dedicated/overflow/
-	Scroll '#content-base' to '#bottom-of-content'
-	${footer_y_location}=  Get Vertical Position  xpath=//*[@id='footer']
-	${content_bottom_y_location}=  Get Vertical Position  xpath=//*[@id='bottom-of-content']
-	Should Be True  ${footer_y_location} > ${content_bottom_y_location}
-    
 Check if view restaurant page elements are present
 	Go to  http://localhost:8000/restaurant/1/
 	Page Should Contain Element  xpath=//*[@id='banner-img']
