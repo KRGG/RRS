@@ -25,7 +25,9 @@
 	  <div id="search-container" class="col-xs-12">
 	    <form id="search-form">
 	      
-	      {{ search_form.restaurant_property }}
+	      <div class="input-group">
+	      	{{ search_form.restaurant_property }}
+	      </div>
 	      
 		  <div class="input-group">
 		    {{ search_form.party_size }}
@@ -48,7 +50,9 @@
 		    </button>
 		  </div>
 			
-		  <input id="submit-button" class="btn btn-primary form-element" type="submit" value="Search" style="margin-bottom: 3px">
+		  <div class="input-group">
+		  	<input id="submit-button" class="btn btn-primary form-element" type="submit" value="Search">
+	      </div>
 	    </form>
 	  </div>
 	</div>

@@ -10,11 +10,5 @@ $(function() {
 	  $(".ui-timepicker-input").timepicker("show");
 	});
     $("#time-input").timepicker();
-    $(".ui-timepicker-input").click(function(){
-	  $(".ui-timepicker-input").timepicker("hide");
-	});
-	$(".ui-timepicker-input").click(function(){
-	  $(".ui-timepicker-input").timepicker("hide");
-	});
 	$("#restaurant-property-input").attr('size',$("#restaurant-property-input").attr('placeholder').length);
 });
