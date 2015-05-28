@@ -1,7 +1,5 @@
-var isSafari = /Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor);
-
 function setResponsiveCss() {
-	if ( isSafari ) {
+	if ( !Modernizr.cssvwunit ) {
 		$("#branding").css("height", $(document).height() * 0.55);
 		
 		if ( $("#footer").offset().top < $("#body").offset().top + $("#body").outerHeight())
