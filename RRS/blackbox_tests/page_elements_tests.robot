@@ -3,8 +3,12 @@
 Documentation  Verifies presence of required components per page
 Library  Selenium2Library
 Library  robot_libraries.DjangoLibrary
-Suite setup  Open Browser  http://localhost:8000/  browser=googlechrome
-Suite teardown  Close Browser
+Resource  resources/user_dependent_variables.robot
+Suite setup  Setup Integration Test
+Suite teardown  Teardown Integration Test
+
+*** Variables ***
+${DOMAIN}  http://localhost:8000
 
 
 *** Test Cases ***
@@ -20,7 +24,7 @@ Check if generic template links are present
     
     
 Check if view restaurant page elements are present
-	Go to  http://localhost:8000/restaurant/1/
+	Go To Named URL  customer:restaurant  1
 	Check That 'index' Is Accessible From xpath=//*[@id='header']//*[@class='navbar-brand']
 	Page Should Contain Element  xpath=//*[@id='banner-img']
 	Page Should Contain Element  xpath=//*[@id='restaurant-name']
@@ -41,4 +45,23 @@ Check That '${named_url}' Is Accessible From ${locator}
 	${url}=  Get Element Attribute  ${locator}@href
 	${resolved_name}=  Resolve Url  ${url}
     Should Be Equal  ${resolved_name}  ${named_url}
+    
+Go To Named URL
+    [Arguments]  ${url_name}  @{url_params}
+    ${full_url}=  Build From Named URL  ${url_name}  @{url_params}
+	Go To  ${full_url}
+	
+Build From Named URL  
+    [Arguments]  ${url_name}  @{url_params}
+    [Return]  ${full_url}
+    ${path}=  Reverse Url  ${url_name}  @{url_params}
+    ${full_url}=  Catenate  SEPARATOR=  ${DOMAIN}  ${path}
+    
+Setup Integration Test
+	${starting_path}=  Reverse Url  index
+	${starting_url}=  Catenate  SEPARATOR=  ${DOMAIN}  ${starting_path}
+	Open Browser  ${starting_url}  browser=${USER_DEPENDENT_BROWSER}
+	
+Teardown Integration Test
+	Close Browser
 	
