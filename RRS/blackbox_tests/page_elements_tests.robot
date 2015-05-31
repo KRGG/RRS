@@ -1,11 +1,8 @@
 *** Settings ***
-
 Documentation  Verifies presence of required components per page
+Resource  resources/keywords.robot
 Library  Selenium2Library
 Library  robot_libraries.DjangoLibrary
-Resource  resources/user_dependent_variables.robot
-Suite setup  Setup Integration Test
-Suite teardown  Teardown Integration Test
 
 *** Variables ***
 ${DOMAIN}  http://localhost:8000
@@ -50,18 +47,4 @@ Go To Named URL
     [Arguments]  ${url_name}  @{url_params}
     ${full_url}=  Build From Named URL  ${url_name}  @{url_params}
 	Go To  ${full_url}
-	
-Build From Named URL  
-    [Arguments]  ${url_name}  @{url_params}
-    [Return]  ${full_url}
-    ${path}=  Reverse Url  ${url_name}  @{url_params}
-    ${full_url}=  Catenate  SEPARATOR=  ${DOMAIN}  ${path}
-    
-Setup Integration Test
-	${starting_path}=  Reverse Url  index
-	${starting_url}=  Catenate  SEPARATOR=  ${DOMAIN}  ${starting_path}
-	Open Browser  ${starting_url}  browser=${USER_DEPENDENT_BROWSER}
-	
-Teardown Integration Test
-	Close Browser
 	
