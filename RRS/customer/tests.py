@@ -2,6 +2,7 @@ from helpers import LinkSanityTestCase
 
 
 class CustomerLinksSanityTests(LinkSanityTestCase):
+    fixtures = ['customer_data.json']
 
     def test__required_links__are_alive(self):
         sample_restaurant_id = 1
