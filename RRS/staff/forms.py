@@ -1,6 +1,5 @@
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Button, Submit, Fieldset, Layout
-from crispy_forms.bootstrap import TabHolder, Tab
 from django import forms
 
 from base import models as base_models
