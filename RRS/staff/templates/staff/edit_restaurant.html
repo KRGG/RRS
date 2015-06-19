@@ -6,11 +6,7 @@
 {% block title %}Edit Restaurant{% endblock %}
 
 {% block content %}
-	<ul class="nav nav-tabs">
-	  <li role="presentation"{% if form_type == 'general' %} class="active"{% endif %}><a href="{% url 'staff:edit-restaurant' %}?form_type=general">General</a></li>
-	  <li role="presentation"{% if form_type == 'location' %} class="active"{% endif %}><a href="{% url 'staff:edit-restaurant' %}?form_type=location">Location</a></li>
-	  <li role="presentation"{% if form_type == 'extras' %} class="active"{% endif %}><a href="{% url 'staff:edit-restaurant' %}?form_type=extras">Other info</a></li>
-	</ul>
+
 	{% if form.errors %}
 		<div class="alert alert-danger alert-dismissible" role="alert">
   			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -22,7 +18,32 @@
   			<strong>Success!</strong> Restaurant details have been updated.
 		</div>
 	{% endif %}
-    {% crispy form %}
+	
+	<div class="bs-example bs-example-tabs" data-example-id="togglable-tabs">
+		<ul id="form-tabs" class="nav nav-tabs" role="tablist">
+		    <li role="presentation" class="active">
+		    	<a href="#general-content" id="general-tab" role="tab" data-toggle="tab" aria-controls="general-content" aria-expanded="true">General</a>
+		    </li>
+	        <li role="presentation">
+	      	    <a href="#location-content" role="tab" id="location-tab" data-toggle="tab" aria-controls="location-content">Location</a>
+	        </li>
+	        <li role="presentation">
+	      	    <a href="#extras-content" role="tab" id="extras-tab" data-toggle="tab" aria-controls="extras-content">Other Info</a>
+	        </li>
+	    </ul>
+	    <div id="tab-content" class="tab-content">
+	      	<div id="general-content" role="tabpanel" class="tab-pane fade in active" aria-labelledby="general-tab">
+	        	{% crispy form_general %}
+	      	</div>
+	      	<div id="location-content" role="tabpanel" class="tab-pane fade" aria-labelledby="location-tab">
+	      		{% crispy form_location %}
+	      	</div>
+	      	<div id="extras-content" role="tabpanel" class="tab-pane fade" aria-labelledby="extras-tab">
+	      		{% crispy form_extras %}
+	      	</div>
+	    </div>
+  	</div>
+    
 {% endblock %}
 
 {% block javascript %}
