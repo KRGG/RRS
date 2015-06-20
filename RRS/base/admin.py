@@ -2,7 +2,7 @@ from django.contrib import admin
 from base.models import *
 
 class RestaurantAdmin(admin.ModelAdmin):
-    list_display = ('name', 'area', 'location')
+    list_display = ('name', 'location')
     
 
 admin.site.register(Area)
