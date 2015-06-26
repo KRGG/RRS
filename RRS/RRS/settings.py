@@ -126,7 +126,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
-    "staff", "/staff/static",
+    "staff", "/staff/static", "/customer/static"
 )
 
 # Allauth settings

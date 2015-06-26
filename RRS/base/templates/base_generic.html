@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 {% load staticfiles %}
 <html lang="en">
+	<head>
     {% block head %}
-      <head>
+      
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>{% block title %}RRS{% endblock title %}</title>
 
-        {% block css %}
-          <link rel="stylesheet" href="{% static 'css/base.css' %}">
+		<link href="{% static "css/base.css" %}" rel="stylesheet">
+        {% block css %}         
         {% endblock css %}
         
-  </head>
   {% endblock head %}
+  </head>
   <body>
   	
   	<nav id="header" class="navbar navbar-default navbar-fixed-top">
@@ -67,6 +68,7 @@
     {% block javascript %}
       <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
       <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+      <script src="{% static "js/modernizr.viewport_units.js" %}"></script>
       <script src="{% static "js/browser_compatibility.js" %}"></script>
     {% endblock javascript %}
 

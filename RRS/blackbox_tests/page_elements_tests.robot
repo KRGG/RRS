@@ -35,6 +35,9 @@ Check if view restaurant page elements are present
 	Page Should Contain Element  xpath=//*[@id='reservation-form']//*[@id='submit-button']
 	
 *** Keywords ***
+    
+    
+    
 Scroll ${scrollable} to ${element}
 	Execute Javascript  $(${scrollable}).scrollTop($(${element}).position().top);
 	

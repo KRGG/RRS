@@ -1,19 +1,52 @@
 @import url("//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css");
+@import "jquery.timepicker.less";
 @import "resource.less";
 @import "sticky-footer-navbar.less";
 
 /* Base template css
 -------------------------------------------------- */
 
+.form-element {
+  float: left;
+  height: @form-input-height;
+  max-width: 70vw;
+  padding: 2px 10px;
+  border-radius: 8px;
+  border: 1px solid #9A9A9A;
+}
+
+.input-group {
+  display: inline-block;
+  display: inline-flex;
+  padding: 2px 0;
+}
+
+.with-trigger {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.text-input-trigger {
+  .form-element();
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-left: none;
+  background-color: white;
+}
+
 .no-margin {
-	margin: 0
+  margin: 0
 }
 
 .stretch-height-to-fit {
-	margin: 0;
+  .no-margin();
   padding: 0;
-	height: 100%;
-	overflow: auto;
+  height: 100%;
+  overflow: auto;
+}
+
+#branding {
+  height: 55vh;
 }
 
 .cols-same-height {
@@ -35,7 +68,34 @@
 }
 
 #page-container {
-	position: absolute;
-	top: @header-height;
-	width: 100%;
+  position: absolute;
+  width: 100%;
+  top: @header-height;
+  width: 100%;
 }
+
+#search-container {
+  display: inline-block;
+}
+  
+#search-form {
+  text-align: center;
+}
+
+#restaurant-property-input {
+  width: 270px;
+}
+
+#party-size-input {
+  width: 75px;
+}
+
+#date-input {
+  width: 110px;
+}
+
+#time-input {
+  width: 90px;
+}
+
+@import "jquery.overrides.less";
