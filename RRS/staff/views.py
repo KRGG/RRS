@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, render
 
+from accounts.models import UserProfile
 from base.models import Restaurant
 from staff import forms
 
@@ -25,24 +26,7 @@ def create_reservation(request):
 
 def edit_restaurant(request):
 
-    # TODO(noelsison2): Get current user's associated restaurant
-    restaurant = get_object_or_404(Restaurant, pk=1)
-
-    if request.method == 'POST':
-        form = RestaurantForm(request.POST, instance=restaurant)
-        if form.is_valid():
-            form.save()
-    else:
-        form = RestaurantForm(instance=restaurant)
-
-    context = {'form': form}
-    return render(request, 'staff/edit_restaurant.html', context)
-
-
-def edit_restaurant(request):
-
-    # TODO(noelsison2): Get current user's associated restaurant
-    restaurant = get_object_or_404(Restaurant, pk=1)
+    restaurant = request.user.user_profile.restaurant
 
     if request.method == 'POST':
         form_general = forms.RestaurantGeneralForm(
@@ -68,7 +52,7 @@ def edit_restaurant(request):
     context = {'form_general': form_general,
                'form_location': form_location,
                'form_extras': form_extras}
-    
+
     return render(request, 'staff/edit_restaurant.html', context)
 
 

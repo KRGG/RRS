@@ -19,7 +19,7 @@ class UserProfile(models.Model):
         (CUSTOMER, 'Customer'),
         (STAFF, 'Staff'),
     )
-    user = models.OneToOneField(User, primary_key=True)
+    user = models.OneToOneField(User, primary_key=True, related_name='user_profile')
     type = models.IntegerField(choices=PROFILE_TYPES, default=CUSTOMER)
     restaurant = models.ForeignKey('base.Restaurant', blank=True, null=True)
 
