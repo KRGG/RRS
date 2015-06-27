@@ -1,8 +1,10 @@
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
 
+from accounts import models as accounts_models
 from base import models as base_models
 from helpers import LinkSanityTestCase
+
 from staff.forms import RestaurantGeneralForm, RestaurantLocationForm, RestaurantExtrasForm
 
 
@@ -63,8 +65,11 @@ class EditRestaurantTestCase(LinkSanityTestCase):
             'website': 'new website'
         }
 
-        # TODO(noelsison2) Associate user with restaurant
-
+        user_profile = accounts_models.UserProfile.objects.create(user=self.user, type=2, restaurant=restaurant)
+        user_profile.save()
+        
+        self.client.login(email=self.user.email,password='staff_password')
+        
     def test__required_links__are_alive(self):
         self.assert_valid_link(
             expected_url='/staff/edit-restaurant/',
