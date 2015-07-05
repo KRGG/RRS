@@ -2,6 +2,7 @@
 
 {% block title %}{% endblock %}
 
+{% load crispy_forms_tags %}
 {% load staticfiles %}
 
 {% block main_content %}
@@ -23,37 +24,7 @@
 	</div>
 	<div class="row no-margin">
 	  <div id="search-container" class="col-xs-12">
-	    <form id="search-form">
-	      
-	      <div class="input-group">
-	      	{{ search_form.restaurant_property }}
-	      </div>
-	      
-		  <div class="input-group">
-		    {{ search_form.party_size }}
-		    <button id="party-size-input-trigger" class="text-input-trigger dropdown-toggle" data-toggle="dropdown" aria-expanded="false" type="button">
-		  	  <span class="caret"></span>
-		    </button>
-		    <ul id="party-size-input-list" class="dropdown-menu for-input" role="menu">
-              <li><a href="#">2</a></li>
-            </ul>
-		  </div>
-		  
-		  <div class="input-group">
-		    {{ search_form.date }}
-		  </div>
-		  
-		  <div class="input-group">
-		    {{ search_form.time }}
-		    <button id="time-input-trigger" class="text-input-trigger" type="button">
-		  	  <span class="caret"></span>
-		    </button>
-		  </div>
-			
-		  <div class="input-group">
-		  	<input id="submit-button" class="btn btn-primary form-element" type="submit" value="Search">
-	      </div>
-	    </form>
+	  	{% crispy search_form %}
 	  </div>
 	</div>
 		
