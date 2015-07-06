@@ -20,7 +20,7 @@ class SearchForm(forms.Form):
             InlineField('party_size', id='party-size-input'),
             InlineField('date', id='date-input'),
             InlineField('time', id='time-input'),
-            Div(InlineField(Submit('search', 'Search', css_id='submit-button')), css_class='form-group'))
+            Div(Submit('search', 'Search', css_id='submit-button')))
         
     restaurant_property = forms.CharField(
         required=False,

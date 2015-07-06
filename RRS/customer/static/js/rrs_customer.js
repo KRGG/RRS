@@ -12,4 +12,5 @@ $(function() {
     $("#time-input").timepicker();
 	$("#restaurant-property-input").attr('size',$("#restaurant-property-input").attr('placeholder').length);
     $('.ui-datepicker-trigger').addClass("btn btn-default");
+    $('#search-form>div').addClass("search-form-group");
 });

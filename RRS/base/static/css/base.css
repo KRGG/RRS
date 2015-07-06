@@ -104,14 +104,13 @@ input {
   border-radius: 8px;
   border: 1px solid #9A9A9A;
 }
-.form-group {
-  display: inline-block;
-  display: inline-flex;
-  vertical-align: top;
+.search-form-group {
+  display: inline-block !important;
+  display: inline-flex !important;
+  vertical-align: top !important;
 }
-.input-group {
+.search-form-group > * {
   display: inline-block;
-  display: inline-flex;
   vertical-align: top;
 }
 .with-trigger {
