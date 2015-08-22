@@ -1,1 +1,202 @@
-@import url("//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css");.ui-timepicker-wrapper{overflow-y:auto;height:150px;width:6.5em;background:#fff;border:1px solid #ddd;-webkit-box-shadow:0 5px 10px rgba(0,0,0,0.2);-moz-box-shadow:0 5px 10px rgba(0,0,0,0.2);box-shadow:0 5px 10px rgba(0,0,0,0.2);outline:none;z-index:10001;margin:0}.ui-timepicker-wrapper.ui-timepicker-with-duration{width:13em}.ui-timepicker-wrapper.ui-timepicker-with-duration.ui-timepicker-step-30,.ui-timepicker-wrapper.ui-timepicker-with-duration.ui-timepicker-step-60{width:11em}.ui-timepicker-list{margin:0;padding:0;list-style:none}.ui-timepicker-duration{margin-left:5px;color:#888}.ui-timepicker-list:hover .ui-timepicker-duration{color:#888}.ui-timepicker-list li{padding:3px 0 3px 5px;cursor:pointer;white-space:nowrap;color:#000;list-style:none;margin:0}.ui-timepicker-list:hover .ui-timepicker-selected{background:#fff;color:#000}li.ui-timepicker-selected,.ui-timepicker-list li:hover,.ui-timepicker-list .ui-timepicker-selected:hover{background:#1980ec;color:#fff}li.ui-timepicker-selected .ui-timepicker-duration,.ui-timepicker-list li:hover .ui-timepicker-duration{color:#ccc}.ui-timepicker-list li.ui-timepicker-disabled,.ui-timepicker-list li.ui-timepicker-disabled:hover,.ui-timepicker-list li.ui-timepicker-selected.ui-timepicker-disabled{color:#888;cursor:default}.ui-timepicker-list li.ui-timepicker-disabled:hover,.ui-timepicker-list li.ui-timepicker-selected.ui-timepicker-disabled{background:#f2f2f2}html{position:relative;min-height:100%}.footer{width:100%;min-height:60px;background-color:#f5f5f5}body>.container{padding:60px 15px 0}.container .text-muted{margin:20px 0}.footer>.container{padding-right:15px;padding-left:15px}code{font-size:80%}.form-element{float:left;height:30px;max-width:70vw;padding:2px 10px;border-radius:8px;border:1px solid #9a9a9a}.input-group{display:inline-block;display:inline-flex;padding:2px 0}.with-trigger{border-top-right-radius:0;border-bottom-right-radius:0}.text-input-trigger{float:left;height:30px;max-width:70vw;padding:2px 10px;border-radius:8px;border:1px solid #9a9a9a;border-top-left-radius:0;border-bottom-left-radius:0;border-left:none;background-color:white}.no-margin{margin:0}.stretch-height-to-fit{margin:0;padding:0;height:100%;overflow:auto}#branding{height:55vh}.cols-same-height{margin:0;display:table;width:100%}.cols-same-height>[class*="col-"]{float:none;display:table-cell;vertical-align:top}#body{width:100%;min-height:calc(100vh - 60px);padding:60px 0 30px}#page-container{position:absolute;top:50px;width:100%}#search-container{display:inline-block}#search-form{text-align:center}#restaurant-property-input{width:270px}#party-size-input{width:75px}#date-input{width:110px}#time-input{width:90px}#ui-datepicker-div{max-width:70vw;max-height:60vh;overflow:auto}.ui-datepicker-header{min-width:205px}.ui-datepicker-trigger{float:left;height:30px;max-width:70vw;padding:2px 10px;border-radius:8px;border:1px solid #9a9a9a;border-top-left-radius:0;border-bottom-left-radius:0;border-left:none;background-color:white}.ui-timepicker-trigger{float:left;height:30px;max-width:70vw;padding:2px 10px;border-radius:8px;border:1px solid #9a9a9a;border-top-left-radius:0;border-bottom-left-radius:0;border-left:none;background-color:white;align-items:flex-start}
+@import url("//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css");
+.ui-timepicker-wrapper {
+  overflow-y: auto;
+  height: 150px;
+  width: 6.5em;
+  background: #fff;
+  border: 1px solid #ddd;
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  outline: none;
+  z-index: 10001;
+  margin: 0;
+}
+.ui-timepicker-wrapper.ui-timepicker-with-duration {
+  width: 13em;
+}
+.ui-timepicker-wrapper.ui-timepicker-with-duration.ui-timepicker-step-30,
+.ui-timepicker-wrapper.ui-timepicker-with-duration.ui-timepicker-step-60 {
+  width: 11em;
+}
+.ui-timepicker-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.ui-timepicker-duration {
+  margin-left: 5px;
+  color: #888;
+}
+.ui-timepicker-list:hover .ui-timepicker-duration {
+  color: #888;
+}
+.ui-timepicker-list li {
+  padding: 3px 0 3px 5px;
+  cursor: pointer;
+  white-space: nowrap;
+  color: #000;
+  list-style: none;
+  margin: 0;
+}
+.ui-timepicker-list:hover .ui-timepicker-selected {
+  background: #fff;
+  color: #000;
+}
+li.ui-timepicker-selected,
+.ui-timepicker-list li:hover,
+.ui-timepicker-list .ui-timepicker-selected:hover {
+  background: #1980EC;
+  color: #fff;
+}
+li.ui-timepicker-selected .ui-timepicker-duration,
+.ui-timepicker-list li:hover .ui-timepicker-duration {
+  color: #ccc;
+}
+.ui-timepicker-list li.ui-timepicker-disabled,
+.ui-timepicker-list li.ui-timepicker-disabled:hover,
+.ui-timepicker-list li.ui-timepicker-selected.ui-timepicker-disabled {
+  color: #888;
+  cursor: default;
+}
+.ui-timepicker-list li.ui-timepicker-disabled:hover,
+.ui-timepicker-list li.ui-timepicker-selected.ui-timepicker-disabled {
+  background: #f2f2f2;
+}
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+.footer {
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  min-height: 60px;
+  background-color: #f5f5f5;
+}
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+body > .container {
+  padding: 60px 15px 0;
+}
+.container .text-muted {
+  margin: 20px 0;
+}
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+code {
+  font-size: 80%;
+}
+/* Base template css
+-------------------------------------------------- */
+input {
+  max-width: 70vw;
+}
+.form-element {
+  float: left;
+  height: 30px;
+  max-width: 70vw;
+  padding: 2px 10px;
+  border-radius: 8px;
+  border: 1px solid #9A9A9A;
+}
+.search-form-group {
+  display: inline-block !important;
+  display: inline-flex !important;
+  vertical-align: top !important;
+}
+.search-form-group > * {
+  display: inline-block;
+  vertical-align: top;
+}
+.with-trigger {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.text-input-trigger {
+  float: left;
+  height: 30px;
+  max-width: 70vw;
+  padding: 2px 10px;
+  border-radius: 8px;
+  border: 1px solid #9A9A9A;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-left: none;
+  background-color: white;
+}
+.no-margin {
+  margin: 0;
+}
+.stretch-height-to-fit {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: auto;
+}
+#branding {
+  height: 55vh;
+}
+.cols-same-height {
+  margin: 0;
+  display: table;
+  width: 100%;
+}
+.cols-same-height > [class*="col-"] {
+  float: none;
+  display: table-cell;
+  vertical-align: top;
+}
+#body {
+  width: 100%;
+  min-height: calc(100vh - 60px);
+  padding: 60px 0 30px;
+}
+#page-container {
+  position: absolute;
+  top: 50px;
+  width: 100%;
+}
+#search-container {
+  display: inline-block;
+}
+#search-form {
+  text-align: center;
+}
+#restaurant-property-input {
+  width: 270px;
+}
+#party-size-input {
+  width: 75px;
+}
+#date-input {
+  width: 110px;
+}
+#time-input {
+  width: 90px;
+}
+#ui-datepicker-div {
+  max-width: 70vw;
+  max-height: 60vh;
+  overflow: auto;
+}
+.ui-datepicker-header {
+  min-width: 205px;
+}
+.ui-timepicker-trigger {
+  float: left;
+  height: 30px;
+  max-width: 70vw;
+  padding: 2px 10px;
+  border-radius: 8px;
+  border: 1px solid #9A9A9A;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-left: none;
+  background-color: white;
+  align-items: flex-start;
+}
